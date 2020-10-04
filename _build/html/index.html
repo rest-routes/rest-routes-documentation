@@ -97,7 +97,7 @@ method for your endpoints:</p>
 <div class="section" id="the-source-field">
 <span id="source-field"></span><h2>The Source Field<a class="headerlink" href="#the-source-field" title="Permalink to this headline">¶</a></h2>
 <p>When creating your custom routes, you will notice that several fields in many places
-contains a field called <strong>Source</strong>. This where you can give a <strong>Fixed Value</strong> or a <strong>Dynamic</strong> (Custom Parameters, see <a class="reference internal" href="#custom-parameters">custom parameters</a>).</p>
+contains a field called <strong>Source</strong>. This where you can give a <strong>Fixed Value</strong>, a <strong>Custom Parameter</strong> (see <a class="reference internal" href="#custom-parameters">custom parameters</a>) or a <strong>Dynamic</strong> field.</p>
 <p>These fields can be found on many places, such as:</p>
 <ul class="simple">
 <li><p>Default filters (e.g.: post id, post type)</p></li>
@@ -113,6 +113,8 @@ the number of posts displayed through the endpoint.</p>
 be always used whenever this endpoint will be called.</p>
 <p>If you select the <strong>Custom Parameter</strong>, then it will prepare the endpoint for receiving the information
 from the end user. See the <a class="reference internal" href="#custom-parameters">custom parameters</a> section for understanding better how Custom Parameters work.</p>
+<p>If you select <strong>Dynamic</strong> then it will display another select field where you can choose some dynamic data for the field.
+Currently, it works with date and current user data.</p>
 </div>
 <div class="section" id="multiple-values-field">
 <span id="multiple-values"></span><h2>Multiple-values Field<a class="headerlink" href="#multiple-values-field" title="Permalink to this headline">¶</a></h2>
@@ -473,6 +475,8 @@ will refine the results that your endpoint will output.</p>
 <p>Here you should define how you will populate the columns of the custom table.</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table field.</p>
+<p>Also, we’ve recently introduced a new field here called “Type to store”. This field should be used whenever you want to
+store the data in database in a particular format, possible values are: raw, JSON and serialized.</p>
 </div>
 <div class="section" id="edit-items">
 <h4>Edit Items<a class="headerlink" href="#edit-items" title="Permalink to this headline">¶</a></h4>

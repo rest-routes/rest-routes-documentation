@@ -88,7 +88,7 @@ The Source Field
 -----------------
 
 When creating your custom routes, you will notice that several fields in many places
-contains a field called **Source**. This where you can give a **Fixed Value** or a **Dynamic** (Custom Parameters, see `custom parameters`_).
+contains a field called **Source**. This where you can give a **Fixed Value**, a **Custom Parameter** (see `custom parameters`_) or a **Dynamic** field.
 
 These fields can be found on many places, such as:
 
@@ -107,6 +107,9 @@ be always used whenever this endpoint will be called.
 
 If you select the **Custom Parameter**, then it will prepare the endpoint for receiving the information
 from the end user. See the `custom parameters`_ section for understanding better how Custom Parameters work.
+
+If you select **Dynamic** then it will display another select field where you can choose some dynamic data for the field.
+Currently, it works with date and current user data.
 
 .. _`multiple values`:
 
@@ -558,6 +561,9 @@ Here you should define how you will populate the columns of the custom table.
 
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table field.
+
+Also, we've recently introduced a new field here called "Type to store". This field should be used whenever you want to
+store the data in database in a particular format, possible values are: raw, JSON and serialized.
 
 Edit Items
 ***********
