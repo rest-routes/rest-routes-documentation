@@ -583,6 +583,9 @@ On this section you will tell the endpoint which columns should be updated and h
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table fields.
 
+Also, we've recently introduced a new field here called "Type to store". This field should be used whenever you want to
+store the data in database in a particular format, possible values are: raw, JSON and serialized.
+
 **Filters**
 
 On this section is where you should adjust the range of affected custom table entries. You can add as many filters as you need as well as adjust the relation type
