@@ -720,6 +720,10 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id7">
 <h3>Posts<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><strong>rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )</strong></p>
+<p>It lets you filter the value of custom fields that will be outputted through <strong>Display Posts</strong> endpoint type. We use it
+internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
+to the third-party plugin format.</p>
 <p><strong>rest_routes_should_process_tax_on_post_creation( true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if taxonomies should be processed on post creation. Parameters:</p>
 <ul class="simple">
@@ -788,6 +792,10 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 </div>
 <div class="section" id="id9">
 <h3>Users<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><strong>rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )</strong></p>
+<p>It lets you filter the value of custom fields that will be outputted through <strong>Display Users</strong> endpoint type. We use it
+internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
+to the third-party plugin format.</p>
 <p><strong>rest_routes_should_process_cf_on_user_create( true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if custom fields should be processed on user creation. Parameters:</p>
 <ul class="simple">

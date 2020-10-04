@@ -833,6 +833,12 @@ Filters
 Posts
 ++++++
 
+**rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )**
+
+It lets you filter the value of custom fields that will be outputted through **Display Posts** endpoint type. We use it
+internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
+to the third-party plugin format.
+
 **rest_routes_should_process_tax_on_post_creation( true, $endpoint, $data, $id )**
 
 It lets you decide if taxonomies should be processed on post creation. Parameters:
@@ -908,6 +914,12 @@ It lets you filter the result of the endpoint for displaying taxonomy terms. Par
 
 Users
 ++++++
+
+**rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )**
+
+It lets you filter the value of custom fields that will be outputted through **Display Users** endpoint type. We use it
+internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
+to the third-party plugin format.
 
 **rest_routes_should_process_cf_on_user_create( true, $endpoint, $data, $id )**
 
