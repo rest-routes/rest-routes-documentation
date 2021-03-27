@@ -111,6 +111,8 @@ from the end user. See the `custom parameters`_ section for understanding better
 If you select **Dynamic** then it will display another select field where you can choose some dynamic data for the field.
 Currently, it works with date and current user data.
 
+If you select **Request body** then the field will parse the whole body of the request and use in the field.
+
 .. _`multiple values`:
 
 Multiple-values Field
@@ -975,3 +977,39 @@ It lets you filter the result of the endpoint for displaying items from custom t
 - result: the variable that can be filtered which by default is an array of objects
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
+
+.. _`custom table database filter`:
+
+**rest_routes_custom_table_db_credentials( array $connection )**
+
+It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
+You can change it by returning an array containing the connection credentials to the desired database:
+'username', 'password', 'host', 'database'.
+
+FAQ
+================
+
+Does this plugin offer REST API authentication?
+---------------------------------------------------
+
+No. Rest Routes Pro lets you define the privacy of your endpoints, so you define which category of user will be able to use your endpoint, however, this feature must be used with some authentication plugin, such as https://wordpress.org/plugins/jwt-auth/
+
+Can I have more than one endpoint for my route?
+------------------------------------------------
+
+Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button "Add new endpoint", this is the button that you should click in.
+
+Can I use dynamic data, such as current user ID, email, etc?
+----------------------------------------------------------------
+
+Yes, when adding any filter, you can select "Dynamic" in the Source field. There, you will be able to use current user fields as well as current date fields. Dont' forget to use some authenticator plugin if you want to use current user data, such as https://wordpress.org/plugins/jwt-auth/
+
+Does this plugin works with custom tables or only with default WordPress tables?
+-------------------------------------------------------------------------------------
+
+Yes, it works with custom tables. You can create endpoints for displaying, creating, editing and deleting data from any database table.
+
+Can I work with non-default databases?
+--------------------------------------
+
+Yes, with this `custom table database filter`_ you can change the database used for the custom table endpoints.

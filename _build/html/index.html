@@ -115,6 +115,7 @@ be always used whenever this endpoint will be called.</p>
 from the end user. See the <a class="reference internal" href="#custom-parameters">custom parameters</a> section for understanding better how Custom Parameters work.</p>
 <p>If you select <strong>Dynamic</strong> then it will display another select field where you can choose some dynamic data for the field.
 Currently, it works with date and current user data.</p>
+<p>If you select <strong>Request body</strong> then the field will parse the whole body of the request and use in the field.</p>
 </div>
 <div class="section" id="multiple-values-field">
 <span id="multiple-values"></span><h2>Multiple-values Field<a class="headerlink" href="#multiple-values-field" title="Permalink to this headline">¶</a></h2>
@@ -845,7 +846,34 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
+<p id="custom-table-database-filter"><strong>rest_routes_custom_table_db_credentials( array $connection )</strong></p>
+<p>It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
+You can change it by returning an array containing the connection credentials to the desired database:
+‘username’, ‘password’, ‘host’, ‘database’.</p>
 </div>
+</div>
+</div>
+<div class="section" id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="does-this-plugin-offer-rest-api-authentication">
+<h2>Does this plugin offer REST API authentication?<a class="headerlink" href="#does-this-plugin-offer-rest-api-authentication" title="Permalink to this headline">¶</a></h2>
+<p>No. Rest Routes Pro lets you define the privacy of your endpoints, so you define which category of user will be able to use your endpoint, however, this feature must be used with some authentication plugin, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
+</div>
+<div class="section" id="can-i-have-more-than-one-endpoint-for-my-route">
+<h2>Can I have more than one endpoint for my route?<a class="headerlink" href="#can-i-have-more-than-one-endpoint-for-my-route" title="Permalink to this headline">¶</a></h2>
+<p>Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button “Add new endpoint”, this is the button that you should click in.</p>
+</div>
+<div class="section" id="can-i-use-dynamic-data-such-as-current-user-id-email-etc">
+<h2>Can I use dynamic data, such as current user ID, email, etc?<a class="headerlink" href="#can-i-use-dynamic-data-such-as-current-user-id-email-etc" title="Permalink to this headline">¶</a></h2>
+<p>Yes, when adding any filter, you can select “Dynamic” in the Source field. There, you will be able to use current user fields as well as current date fields. Dont’ forget to use some authenticator plugin if you want to use current user data, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
+</div>
+<div class="section" id="does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables">
+<h2>Does this plugin works with custom tables or only with default WordPress tables?<a class="headerlink" href="#does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables" title="Permalink to this headline">¶</a></h2>
+<p>Yes, it works with custom tables. You can create endpoints for displaying, creating, editing and deleting data from any database table.</p>
+</div>
+<div class="section" id="can-i-work-with-non-default-databases">
+<h2>Can I work with non-default databases?<a class="headerlink" href="#can-i-work-with-non-default-databases" title="Permalink to this headline">¶</a></h2>
+<p>Yes, with this <a class="reference internal" href="#custom-table-database-filter">custom table database filter</a> you can change the database used for the custom table endpoints.</p>
 </div>
 </div>
 
@@ -916,6 +944,14 @@ to the third-party plugin format.</p>
 <li><a class="reference internal" href="#id10">Custom Tables</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#faq">FAQ</a><ul>
+<li><a class="reference internal" href="#does-this-plugin-offer-rest-api-authentication">Does this plugin offer REST API authentication?</a></li>
+<li><a class="reference internal" href="#can-i-have-more-than-one-endpoint-for-my-route">Can I have more than one endpoint for my route?</a></li>
+<li><a class="reference internal" href="#can-i-use-dynamic-data-such-as-current-user-id-email-etc">Can I use dynamic data, such as current user ID, email, etc?</a></li>
+<li><a class="reference internal" href="#does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables">Does this plugin works with custom tables or only with default WordPress tables?</a></li>
+<li><a class="reference internal" href="#can-i-work-with-non-default-databases">Can I work with non-default databases?</a></li>
 </ul>
 </li>
 </ul>
