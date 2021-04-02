@@ -619,25 +619,25 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
 <h3>Posts<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_before_create_posts_callback</strong></p>
+<p><strong>do_action(‘rest_routes_before_create_posts_callback’, $data, $endpoint)</strong></p>
 <p>Called right before the creation of posts. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_create_posts_callback</strong></p>
+<p><strong>do_action(‘rest_routes_after_create_posts_callback’, $data, $endpoint, $post_id)</strong></p>
 <p>Called right after the creation of posts. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_before_edit_posts_callback</strong></p>
+<p><strong>do_action(‘rest_routes_before_edit_posts’, $data, $endpoint);</strong></p>
 <p>Called right before editing a post. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_edit_posts</strong></p>
+<p><strong>do_action(‘rest_routes_after_edit_posts’, $data, $endpoint, $post_id);</strong></p>
 <p>Called right after editing a post. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -650,25 +650,25 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 </div>
 <div class="section" id="id5">
 <h3>Users<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_before_create_users( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_before_create_users’, $data, $endpoint);</strong></p>
 <p>Called right before the creation of users. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_create_users( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_after_create_users’, $data, $endpoint, $user_id)</strong></p>
 <p>Called right after the creation of users. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_before_edit_user( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_before_edit_user’, $data, $endpoint)</strong></p>
 <p>Called right before editing the user. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_edit_user( $data, $endpoint, $id )</strong></p>
+<p><strong>do_action(‘rest_routes_after_edit_user’, $data, $endpoint, $user_id)</strong></p>
 <p>Called right after editing the user. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -678,38 +678,38 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 </div>
 <div class="section" id="id6">
 <h3>Custom Tables<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_before_create_custom_table( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_before_create_custom_table’, $data, $endpoint)</strong></p>
 <p>Called right before the creation of items on custom table. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_create_custom_table( $data, $endpoint, $id )</strong></p>
+<p><strong>do_action(‘rest_routes_after_create_custom_table’, $data, $endpoint, $wpdb_new-&gt;insert_id)</strong></p>
 <p>Called right after the creation of items on custom table. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the newly created item</p></li>
 </ul>
-<p><strong>rest_routes_before_delete_custom_table( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_before_delete_custom_table’, $data, $endpoint);</strong></p>
 <p>Called right before deleting custom table items. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_delete_custom_table( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_after_delete_custom_table’, $data, $endpoint)</strong></p>
 <p>Called right after deleting custom table items. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_before_edit_custom_table_callback( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_before_edit_custom_table_callback’, $data, $endpoint)</strong></p>
 <p>Called right before editing custom table items. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_edit_custom_table_callback( $data, $endpoint )</strong></p>
+<p><strong>do_action(‘rest_routes_after_edit_custom_table_callback’, $data, $endpoint)</strong></p>
 <p>Called right after editing custom table items. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -721,11 +721,11 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id7">
 <h3>Posts<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )</strong></p>
+<p><strong>apply_filters(‘rest_routes_output_custom_field’, $customFieldValue, $outputField, $elementId )</strong></p>
 <p>It lets you filter the value of custom fields that will be outputted through <strong>Display Posts</strong> endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
 to the third-party plugin format.</p>
-<p><strong>rest_routes_should_process_tax_on_post_creation( true, $endpoint, $data, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_should_process_tax_on_post_creation’, true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if taxonomies should be processed on post creation. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
@@ -733,7 +733,7 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>id: the id of the newly created post</p></li>
 </ul>
-<p><strong>rest_routes_should_process_cf_on_post_creation( true, $endpoint, $data, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_should_process_cf_on_post_creation’, true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if custom fields should be processed on post creation. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
@@ -741,7 +741,7 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>id: the id of the newly created post</p></li>
 </ul>
-<p><strong>rest_routes_create_posts_result( $result, $data, $endpoint, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_create_posts_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for creation of posts. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is a message containing the id of the newly created post</p></li>
@@ -749,14 +749,14 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the newly created item</p></li>
 </ul>
-<p><strong>rest_routes_display_posts_results( $result, $data, $endpoint )</strong></p>
+<p><strong>apply_filters(‘rest_routes_display_posts_results’, $result, $data, $endpoint )</strong></p>
 <p>It lets you filter the result of the endpoint for displaying posts. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array of objects</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_should_process_tax_on_post_edit( true, $endpoint, $data, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_should_process_tax_on_post_edit’, true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if taxonomies should be processed when editing a post. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
@@ -764,7 +764,7 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>id: the id of the newly created post</p></li>
 </ul>
-<p><strong>rest_routes_should_process_cf_on_post_edit( true, $endpoint, $data, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_should_process_cf_on_post_edit’, true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if custom fields should be processed when editing a post. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
@@ -772,7 +772,7 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>id: the id of the newly created post</p></li>
 </ul>
-<p><strong>rest_routes_edit_post_result( $result, $data, $endpoint, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_edit_post_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for editing a post. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the edited post</p></li>
@@ -780,10 +780,12 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the edited post</p></li>
 </ul>
+<p><strong>apply_filters(‘rest_routes_output_parent_field_prefix’, ‘parent_’, $outputField, $post)</strong></p>
+<p>It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is “parent_”.</p>
 </div>
 <div class="section" id="id8">
 <h3>Taxonomies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_display_taxonomies_results( $result, $data, $endpoint )</strong></p>
+<p><strong>apply_filters(‘rest_routes_display_taxonomies_results’, $result, $data, $endpoint )</strong></p>
 <p>It lets you filter the result of the endpoint for displaying taxonomy terms. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array of objects</p></li>
@@ -793,11 +795,11 @@ to the third-party plugin format.</p>
 </div>
 <div class="section" id="id9">
 <h3>Users<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )</strong></p>
+<p><strong>apply_filters(rest_routes_output_custom_field’, $customFieldValue, $outputField, $elementId )</strong></p>
 <p>It lets you filter the value of custom fields that will be outputted through <strong>Display Users</strong> endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
 to the third-party plugin format.</p>
-<p><strong>rest_routes_should_process_cf_on_user_create( true, $endpoint, $data, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_should_process_cf_on_user_create’, true, $endpoint, $data, $id )</strong></p>
 <p>It lets you decide if custom fields should be processed on user creation. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
@@ -805,7 +807,7 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>id: the id of the newly created user</p></li>
 </ul>
-<p><strong>rest_routes_create_users_result( $result, $data, $endpoint, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_create_users_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for creation of users. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the newly created item</p></li>
@@ -813,14 +815,14 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the newly created item</p></li>
 </ul>
-<p><strong>rest_routes_display_users_results( $result, $data, $endpoint )</strong></p>
+<p><strong>apply_filters(‘rest_routes_display_users_results’, $result, $data, $endpoint )</strong></p>
 <p>It lets you filter the result of the endpoint for displaying users. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array of objects</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_edit_post_result( $result, $data, $endpoint, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_edit_post_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for editing an user. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the edited user</p></li>
@@ -831,7 +833,7 @@ to the third-party plugin format.</p>
 </div>
 <div class="section" id="id10">
 <h3>Custom Tables<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p><strong>rest_routes_create_custom_table_result( $result, $data, $endpoint, $id )</strong></p>
+<p><strong>apply_filters(‘rest_routes_create_custom_table_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for creation of items in custom table. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the newly created item</p></li>
@@ -839,14 +841,14 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the newly created item</p></li>
 </ul>
-<p><strong>rest_routes_display_custom_table_results( $result, $data, $endpoint )</strong></p>
+<p><strong>apply_filters(‘rest_routes_display_custom_table_results’, $result, $data, $endpoint )</strong></p>
 <p>It lets you filter the result of the endpoint for displaying items from custom tables. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array of objects</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p id="custom-table-database-filter"><strong>rest_routes_custom_table_db_credentials( array $connection )</strong></p>
+<p id="custom-table-database-filter"><strong>apply_filters(‘rest_routes_custom_table_db_credentials’, array $connection)</strong></p>
 <p>It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
 ‘username’, ‘password’, ‘host’, ‘database’.</p>

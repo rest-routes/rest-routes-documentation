@@ -905,7 +905,7 @@ It lets you filter the result of the endpoint for editing a post. Parameters:
 
 **apply_filters('rest_routes_output_parent_field_prefix', 'parent_', $outputField, $post)**
 
-It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is 'parent'.
+It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is "parent\_".
 
 Taxonomies
 +++++++++++

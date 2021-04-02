@@ -719,28 +719,28 @@ Actions
 Posts
 ++++++
 
-**rest_routes_before_create_posts_callback**
+**do_action('rest_routes_before_create_posts_callback', $data, $endpoint)**
 
 Called right before the creation of posts. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_create_posts_callback**
+**do_action('rest_routes_after_create_posts_callback', $data, $endpoint, $post_id)**
 
 Called right after the creation of posts. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_before_edit_posts_callback**
+**do_action('rest_routes_before_edit_posts', $data, $endpoint);**
 
 Called right before editing a post. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_edit_posts**
+**do_action('rest_routes_after_edit_posts', $data, $endpoint, $post_id);**
 
 Called right after editing a post. Parameters:
 
@@ -754,28 +754,28 @@ Taxonomies
 Users
 ++++++
 
-**rest_routes_before_create_users( $data, $endpoint )**
+**do_action('rest_routes_before_create_users', $data, $endpoint);**
 
 Called right before the creation of users. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_create_users( $data, $endpoint )**
+**do_action('rest_routes_after_create_users', $data, $endpoint, $user_id)**
 
 Called right after the creation of users. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_before_edit_user( $data, $endpoint )**
+**do_action('rest_routes_before_edit_user', $data, $endpoint)**
 
 Called right before editing the user. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_edit_user( $data, $endpoint, $id )**
+**do_action('rest_routes_after_edit_user', $data, $endpoint, $user_id)**
 
 Called right after editing the user. Parameters:
 
@@ -786,14 +786,14 @@ Called right after editing the user. Parameters:
 Custom Tables
 ++++++++++++++
 
-**rest_routes_before_create_custom_table( $data, $endpoint )**
+**do_action('rest_routes_before_create_custom_table', $data, $endpoint)**
 
 Called right before the creation of items on custom table. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_create_custom_table( $data, $endpoint, $id )**
+**do_action('rest_routes_after_create_custom_table', $data, $endpoint, $wpdb_new->insert_id)**
 
 Called right after the creation of items on custom table. Parameters:
 
@@ -801,28 +801,28 @@ Called right after the creation of items on custom table. Parameters:
 - endpoint: the endpoint object
 - id: the id of the newly created item
 
-**rest_routes_before_delete_custom_table( $data, $endpoint )**
+**do_action('rest_routes_before_delete_custom_table', $data, $endpoint);**
 
 Called right before deleting custom table items. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_delete_custom_table( $data, $endpoint )**
+**do_action('rest_routes_after_delete_custom_table', $data, $endpoint)**
 
 Called right after deleting custom table items. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_before_edit_custom_table_callback( $data, $endpoint )**
+**do_action('rest_routes_before_edit_custom_table_callback', $data, $endpoint)**
 
 Called right before editing custom table items. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_edit_custom_table_callback( $data, $endpoint )**
+**do_action('rest_routes_after_edit_custom_table_callback', $data, $endpoint)**
 
 Called right after editing custom table items. Parameters:
 
@@ -835,13 +835,13 @@ Filters
 Posts
 ++++++
 
-**rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )**
+**apply_filters('rest_routes_output_custom_field', $customFieldValue, $outputField, $elementId )**
 
 It lets you filter the value of custom fields that will be outputted through **Display Posts** endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
 to the third-party plugin format.
 
-**rest_routes_should_process_tax_on_post_creation( true, $endpoint, $data, $id )**
+**apply_filters('rest_routes_should_process_tax_on_post_creation', true, $endpoint, $data, $id )**
 
 It lets you decide if taxonomies should be processed on post creation. Parameters:
 
@@ -850,7 +850,7 @@ It lets you decide if taxonomies should be processed on post creation. Parameter
 - data: the `\WP_REST_Request` object
 - id: the id of the newly created post
 
-**rest_routes_should_process_cf_on_post_creation( true, $endpoint, $data, $id )**
+**apply_filters('rest_routes_should_process_cf_on_post_creation', true, $endpoint, $data, $id )**
 
 It lets you decide if custom fields should be processed on post creation. Parameters:
 
@@ -859,7 +859,7 @@ It lets you decide if custom fields should be processed on post creation. Parame
 - data: the `\WP_REST_Request` object
 - id: the id of the newly created post
 
-**rest_routes_create_posts_result( $result, $data, $endpoint, $id )**
+**apply_filters('rest_routes_create_posts_result', $result, $data, $endpoint, $id )**
 
 It lets you filter the result of the endpoint for creation of posts. Parameters:
 
@@ -868,7 +868,7 @@ It lets you filter the result of the endpoint for creation of posts. Parameters:
 - endpoint: the endpoint object
 - id: the id of the newly created item
 
-**rest_routes_display_posts_results( $result, $data, $endpoint )**
+**apply_filters('rest_routes_display_posts_results', $result, $data, $endpoint )**
 
 It lets you filter the result of the endpoint for displaying posts. Parameters:
 
@@ -876,7 +876,7 @@ It lets you filter the result of the endpoint for displaying posts. Parameters:
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_should_process_tax_on_post_edit( true, $endpoint, $data, $id )**
+**apply_filters('rest_routes_should_process_tax_on_post_edit', true, $endpoint, $data, $id )**
 
 It lets you decide if taxonomies should be processed when editing a post. Parameters:
 
@@ -885,7 +885,7 @@ It lets you decide if taxonomies should be processed when editing a post. Parame
 - data: the `\WP_REST_Request` object
 - id: the id of the newly created post
 
-**rest_routes_should_process_cf_on_post_edit( true, $endpoint, $data, $id )**
+**apply_filters('rest_routes_should_process_cf_on_post_edit', true, $endpoint, $data, $id )**
 
 It lets you decide if custom fields should be processed when editing a post. Parameters:
 
@@ -894,7 +894,7 @@ It lets you decide if custom fields should be processed when editing a post. Par
 - data: the `\WP_REST_Request` object
 - id: the id of the newly created post
 
-**rest_routes_edit_post_result( $result, $data, $endpoint, $id )**
+**apply_filters('rest_routes_edit_post_result', $result, $data, $endpoint, $id )**
 
 It lets you filter the result of the endpoint for editing a post. Parameters:
 
@@ -903,10 +903,14 @@ It lets you filter the result of the endpoint for editing a post. Parameters:
 - endpoint: the endpoint object
 - id: the id of the edited post
 
+**apply_filters('rest_routes_output_parent_field_prefix', 'parent_', $outputField, $post)**
+
+It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is "parent\_".
+
 Taxonomies
 +++++++++++
 
-**rest_routes_display_taxonomies_results( $result, $data, $endpoint )**
+**apply_filters('rest_routes_display_taxonomies_results', $result, $data, $endpoint )**
 
 It lets you filter the result of the endpoint for displaying taxonomy terms. Parameters:
 
@@ -917,13 +921,13 @@ It lets you filter the result of the endpoint for displaying taxonomy terms. Par
 Users
 ++++++
 
-**rest_routes_output_custom_field( $customFieldValue, $outputField, $elementId )**
+**apply_filters(rest_routes_output_custom_field', $customFieldValue, $outputField, $elementId )**
 
 It lets you filter the value of custom fields that will be outputted through **Display Users** endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
 to the third-party plugin format.
 
-**rest_routes_should_process_cf_on_user_create( true, $endpoint, $data, $id )**
+**apply_filters('rest_routes_should_process_cf_on_user_create', true, $endpoint, $data, $id )**
 
 It lets you decide if custom fields should be processed on user creation. Parameters:
 
@@ -932,7 +936,7 @@ It lets you decide if custom fields should be processed on user creation. Parame
 - data: the `\WP_REST_Request` object
 - id: the id of the newly created user
 
-**rest_routes_create_users_result( $result, $data, $endpoint, $id )**
+**apply_filters('rest_routes_create_users_result', $result, $data, $endpoint, $id )**
 
 It lets you filter the result of the endpoint for creation of users. Parameters:
 
@@ -941,7 +945,7 @@ It lets you filter the result of the endpoint for creation of users. Parameters:
 - endpoint: the endpoint object
 - id: the id of the newly created item
 
-**rest_routes_display_users_results( $result, $data, $endpoint )**
+**apply_filters('rest_routes_display_users_results', $result, $data, $endpoint )**
 
 It lets you filter the result of the endpoint for displaying users. Parameters:
 
@@ -949,7 +953,7 @@ It lets you filter the result of the endpoint for displaying users. Parameters:
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_edit_post_result( $result, $data, $endpoint, $id )**
+**apply_filters('rest_routes_edit_post_result', $result, $data, $endpoint, $id )**
 
 It lets you filter the result of the endpoint for editing an user. Parameters:
 
@@ -961,7 +965,7 @@ It lets you filter the result of the endpoint for editing an user. Parameters:
 Custom Tables
 ++++++++++++++
 
-**rest_routes_create_custom_table_result( $result, $data, $endpoint, $id )**
+**apply_filters('rest_routes_create_custom_table_result', $result, $data, $endpoint, $id )**
 
 It lets you filter the result of the endpoint for creation of items in custom table. Parameters:
 
@@ -970,7 +974,7 @@ It lets you filter the result of the endpoint for creation of items in custom ta
 - endpoint: the endpoint object
 - id: the id of the newly created item
 
-**rest_routes_display_custom_table_results( $result, $data, $endpoint )**
+**apply_filters('rest_routes_display_custom_table_results', $result, $data, $endpoint )**
 
 It lets you filter the result of the endpoint for displaying items from custom tables. Parameters:
 
@@ -980,7 +984,7 @@ It lets you filter the result of the endpoint for displaying items from custom t
 
 .. _`custom table database filter`:
 
-**rest_routes_custom_table_db_credentials( array $connection )**
+**apply_filters('rest_routes_custom_table_db_credentials', array $connection)**
 
 It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
