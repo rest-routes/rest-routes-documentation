@@ -225,37 +225,69 @@ See the `limit and offset`_ section for more information about this one.
 On this section you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
 the complete list of fields that you can expose:
 
-- Title
-- ID
-- Author
-- Date
-- Date GMT
-- Content
-- Excerpt
-- Status
-- Comment status
-- Ping status
-- Password
-- Name
-- To ping
-- Pinged
-- Modified date
-- Modified date GMT
-- Content filtered
-- Parent
-- GUID
-- Permalink
-- Menu order
-- Post type
-- Post mime type
-- Comment count
-- Post format
-- Custom field: **this option requires you to fill the field "Custom field name" in order to inform the endpoint which custom field you will want to display**
-- Taxonomy: **this option requires you to fill some fields in order to inform the endpoint which taxonomy term you will want to display**
-- Featured image
-- Attached images
 - Attached audios
+- Attached images
 - Attached videos
+- Comment count
+- Comment status
+- Custom field
+- Custom field (Toolset Types)
+- Featured image
+- GUID
+- Menu order
+- Parent post: Attached audios
+- Parent post: Attached images
+- Parent post: Attached videos
+- Parent post: Comment count
+- Parent post: Comment status
+- Parent post: Custom field
+- Parent post: Featured image
+- Parent post: GUID
+- Parent post: Menu order
+- Parent post: Permalink
+- Parent post: Ping status
+- Parent post: Pinged
+- Parent post: Post ID
+- Parent post: Post author
+- Parent post: Post content
+- Parent post: Post content filtered
+- Parent post: Post date
+- Parent post: Post date GMT
+- Parent post: Post excerpt
+- Parent post: Post format
+- Parent post: Post mime type
+- Parent post: Post modified
+- Parent post: Post modified GMT
+- Parent post: Post name
+- Parent post: Post parent
+- Parent post: Post password
+- Parent post: Post status
+- Parent post: Post title
+- Parent post: Post type
+- Parent post: Taxonomy
+- Parent post: To ping
+- Permalink
+- Ping status
+- Pinged
+- Post ID
+- Post author
+- Post content
+- Post content filtered
+- Post date
+- Post date GMT
+- Post excerpt
+- Post format
+- Post mime type
+- Post modified
+- Post modified GMT
+- Post name
+- Post parent
+- Post password
+- Post status
+- Post title
+- Post type
+- Taxonomy
+- To ping
 
 Edit Posts
 ***********
@@ -576,7 +608,7 @@ This is a required section, where you should choose which table you will want to
 
 .. note:: We recommend you to choose the **Editable** method which can be POST, PUT or PATCH in order to follow the best REST practices.
 
-.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.
+.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.
 
 **Columns to Edit**
 
@@ -712,6 +744,8 @@ Currently, Rest Routes is compatible with the following plugins:
 
 Hooks
 ========
+
+As any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.
 
 Actions
 --------

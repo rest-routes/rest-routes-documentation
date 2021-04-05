@@ -200,37 +200,69 @@ here you can add as many filters as you want for the taxonomies and each filter 
 <p>On this section you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
 the complete list of fields that you can expose:</p>
 <ul class="simple">
-<li><p>Title</p></li>
-<li><p>ID</p></li>
-<li><p>Author</p></li>
-<li><p>Date</p></li>
-<li><p>Date GMT</p></li>
-<li><p>Content</p></li>
-<li><p>Excerpt</p></li>
-<li><p>Status</p></li>
-<li><p>Comment status</p></li>
-<li><p>Ping status</p></li>
-<li><p>Password</p></li>
-<li><p>Name</p></li>
-<li><p>To ping</p></li>
-<li><p>Pinged</p></li>
-<li><p>Modified date</p></li>
-<li><p>Modified date GMT</p></li>
-<li><p>Content filtered</p></li>
-<li><p>Parent</p></li>
-<li><p>GUID</p></li>
-<li><p>Permalink</p></li>
-<li><p>Menu order</p></li>
-<li><p>Post type</p></li>
-<li><p>Post mime type</p></li>
-<li><p>Comment count</p></li>
-<li><p>Post format</p></li>
-<li><p>Custom field: <strong>this option requires you to fill the field “Custom field name” in order to inform the endpoint which custom field you will want to display</strong></p></li>
-<li><p>Taxonomy: <strong>this option requires you to fill some fields in order to inform the endpoint which taxonomy term you will want to display</strong></p></li>
-<li><p>Featured image</p></li>
-<li><p>Attached images</p></li>
 <li><p>Attached audios</p></li>
+<li><p>Attached images</p></li>
 <li><p>Attached videos</p></li>
+<li><p>Comment count</p></li>
+<li><p>Comment status</p></li>
+<li><p>Custom field</p></li>
+<li><p>Custom field (Toolset Types)</p></li>
+<li><p>Featured image</p></li>
+<li><p>GUID</p></li>
+<li><p>Menu order</p></li>
+<li><p>Parent post: Attached audios</p></li>
+<li><p>Parent post: Attached images</p></li>
+<li><p>Parent post: Attached videos</p></li>
+<li><p>Parent post: Comment count</p></li>
+<li><p>Parent post: Comment status</p></li>
+<li><p>Parent post: Custom field</p></li>
+<li><p>Parent post: Featured image</p></li>
+<li><p>Parent post: GUID</p></li>
+<li><p>Parent post: Menu order</p></li>
+<li><p>Parent post: Permalink</p></li>
+<li><p>Parent post: Ping status</p></li>
+<li><p>Parent post: Pinged</p></li>
+<li><p>Parent post: Post ID</p></li>
+<li><p>Parent post: Post author</p></li>
+<li><p>Parent post: Post content</p></li>
+<li><p>Parent post: Post content filtered</p></li>
+<li><p>Parent post: Post date</p></li>
+<li><p>Parent post: Post date GMT</p></li>
+<li><p>Parent post: Post excerpt</p></li>
+<li><p>Parent post: Post format</p></li>
+<li><p>Parent post: Post mime type</p></li>
+<li><p>Parent post: Post modified</p></li>
+<li><p>Parent post: Post modified GMT</p></li>
+<li><p>Parent post: Post name</p></li>
+<li><p>Parent post: Post parent</p></li>
+<li><p>Parent post: Post password</p></li>
+<li><p>Parent post: Post status</p></li>
+<li><p>Parent post: Post title</p></li>
+<li><p>Parent post: Post type</p></li>
+<li><p>Parent post: Taxonomy</p></li>
+<li><p>Parent post: To ping</p></li>
+<li><p>Permalink</p></li>
+<li><p>Ping status</p></li>
+<li><p>Pinged</p></li>
+<li><p>Post ID</p></li>
+<li><p>Post author</p></li>
+<li><p>Post content</p></li>
+<li><p>Post content filtered</p></li>
+<li><p>Post date</p></li>
+<li><p>Post date GMT</p></li>
+<li><p>Post excerpt</p></li>
+<li><p>Post format</p></li>
+<li><p>Post mime type</p></li>
+<li><p>Post modified</p></li>
+<li><p>Post modified GMT</p></li>
+<li><p>Post name</p></li>
+<li><p>Post parent</p></li>
+<li><p>Post password</p></li>
+<li><p>Post status</p></li>
+<li><p>Post title</p></li>
+<li><p>Post type</p></li>
+<li><p>Taxonomy</p></li>
+<li><p>To ping</p></li>
 </ul>
 </div>
 <div class="section" id="edit-posts">
@@ -489,7 +521,7 @@ store the data in database in a particular format, possible values are: raw, JSO
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.</p>
+<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.</p>
 </div>
 <p><strong>Columns to Edit</strong></p>
 <p>On this section you will tell the endpoint which columns should be updated and how.</p>
@@ -615,6 +647,7 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 </div>
 <div class="section" id="hooks">
 <h1>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h1>
+<p>As any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.</p>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
