@@ -1024,6 +1024,13 @@ It lets you change the default database used on your custom endpoints for custom
 You can change it by returning an array containing the connection credentials to the desired database:
 'username', 'password', 'host', 'database'.
 
+Third Party
+++++++++++++++
+
+**apply_filters('rest_routes_disable_wp_rest_route_cache', bool $value)**
+
+It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default it is set to false.
+
 FAQ
 ================
 
