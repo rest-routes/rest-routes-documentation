@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Rest Routes Pro &#8212; Rest Routes Pro  documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -34,29 +35,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rest-routes-pro">
-<h1>Rest Routes Pro<a class="headerlink" href="#rest-routes-pro" title="Permalink to this headline">¶</a></h1>
+  <section id="rest-routes-pro">
+<h1>Rest Routes Pro<a class="headerlink" href="#rest-routes-pro" title="Permalink to this heading"></a></h1>
 <p>Rest Routes Pro is a WordPress plugin that lets you extend the WordPress REST API. You can build complexes
 custom endpoints for native WordPress objects (posts, taxonomies, users, custom fields) as well as for
 any custom database table.</p>
 <p>The beauty of the plugin is that you don’t need to touch a single line of PHP code for that. It comes out
 with a well-designed interface for building your custom endpoints.</p>
-</div>
-<div class="section" id="who-is-that-for">
-<h1>Who is that For<a class="headerlink" href="#who-is-that-for" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="who-is-that-for">
+<h1>Who is that For<a class="headerlink" href="#who-is-that-for" title="Permalink to this heading"></a></h1>
 <p><strong>Front-end Developers</strong></p>
 <p>If you are a WordPress front-end developer or a mobile developer that uses WordPress as a back-end service you would take a lot from Rest Routes. You can build your front-end applications using any framework of your choice (React, Vue, etc.) and then use Rest Routes to design the custom endpoints that they will consume without the need of touching PHP code for it.</p>
 <p><strong>Integration with third-party APIs</strong></p>
 <p>This plugin is recommended for you that is developing WordPress applications that need to communicate with external servers. You can easily build custom routes that will both expose data to the third-party server and populate data into your WordPress application database.</p>
 <p><strong>WordPress Headless Applications</strong></p>
 <p>If you are simply using the WordPress as a back-end application, which means that you are not using anything related to the front-end of the WordPress, such as Themes, then this plugin is fully recommended for you. You can easily build custom routes that will let you expose your back-end data and also populate existing database tables.</p>
-</div>
-<div class="section" id="custom-endpoints">
-<h1>Custom Endpoints<a class="headerlink" href="#custom-endpoints" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="custom-endpoints">
+<h1>Custom Endpoints<a class="headerlink" href="#custom-endpoints" title="Permalink to this heading"></a></h1>
 <p>You can easily find all the custom routes that you previously created through Rest Routes Pro as well as
 add a new one through the WordPress admin menu <strong>Rest Routes Pro &gt; Routes</strong>.</p>
-<div class="section" id="basic-settings">
-<h2>Basic Settings<a class="headerlink" href="#basic-settings" title="Permalink to this headline">¶</a></h2>
+<section id="basic-settings">
+<h2>Basic Settings<a class="headerlink" href="#basic-settings" title="Permalink to this heading"></a></h2>
 <p>This is the first section that you will find once editing or creating a new route. There you will find two
 text fields:</p>
 <p><strong>Namespace</strong></p>
@@ -66,9 +67,9 @@ text fields:</p>
 <p>This is the second part of the custom endpoint and the name of your route that comes out just after the namespace. So given the route below:</p>
 <p><cite>wp-json/acme/v1/some-nice-route</cite></p>
 <p>The namespace is <cite>acme/v1</cite> and the route name <cite>some-nice-route</cite>.</p>
-</div>
-<div class="section" id="visibility">
-<h2>Visibility<a class="headerlink" href="#visibility" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="visibility">
+<h2>Visibility<a class="headerlink" href="#visibility" title="Permalink to this heading"></a></h2>
 <p>First of all, you must understand that for each single route you can have many endpoints. So, for instance,
 for the route above <cite>wp-json/acme/v1/some-nice-route</cite> you can have one endpoint for displaying some posts
 using the HTTP GET method and another endpoint for creating posts using the HTTP POST method.</p>
@@ -77,9 +78,9 @@ the visibility of some particular endpoint.</p>
 <p>For doing that, you must use the green switcher for enabling or disabling.</p>
 <p>Once you do that, the selected endpoints or the entire route won’t be registered on the list of available
 WP REST endpoints anymore, until you enable them again.</p>
-</div>
-<div class="section" id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
 <p>This is the first left box that you will find once editing or creating a new route. There is where you can
 define which HTTP method you are going to use. You can have up to 4 endpoints on each route and each
 endpoints should be using a different method. Which means that you can’t have the same HTTP method for
@@ -93,9 +94,9 @@ method for your endpoints:</p>
 <li><p>DELETE for deleting resources</p></li>
 </ul>
 <p><strong>This is a required field, you can’t have one endpoint without a method</strong></p>
-</div>
-<div class="section" id="the-source-field">
-<span id="source-field"></span><h2>The Source Field<a class="headerlink" href="#the-source-field" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-source-field">
+<span id="source-field"></span><h2>The Source Field<a class="headerlink" href="#the-source-field" title="Permalink to this heading"></a></h2>
 <p>When creating your custom routes, you will notice that several fields in many places
 contains a field called <strong>Source</strong>. This where you can give a <strong>Fixed Value</strong>, a <strong>Custom Parameter</strong> (see <a class="reference internal" href="#custom-parameters">custom parameters</a>) or a <strong>Dynamic</strong> field.</p>
 <p>These fields can be found on many places, such as:</p>
@@ -116,14 +117,14 @@ from the end user. See the <a class="reference internal" href="#custom-parameter
 <p>If you select <strong>Dynamic</strong> then it will display another select field where you can choose some dynamic data for the field.
 Currently, it works with date and current user data.</p>
 <p>If you select <strong>Request body</strong> then the field will parse the whole body of the request and use in the field.</p>
-</div>
-<div class="section" id="multiple-values-field">
-<span id="multiple-values"></span><h2>Multiple-values Field<a class="headerlink" href="#multiple-values-field" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="multiple-values-field">
+<span id="multiple-values"></span><h2>Multiple-values Field<a class="headerlink" href="#multiple-values-field" title="Permalink to this heading"></a></h2>
 <p>Those fields accept one or more values. If you defined the <a class="reference internal" href="#source-field">source field</a> of it as <strong>Fixed Value</strong> you can separate the values using comma. When you define it as <a class="reference internal" href="#custom-parameter">custom parameter</a> you can
 pass array arguments in the request, something like: <strong>your-url.dev/arg[]=1&amp;arg[]=2&amp;arg[]=3</strong></p>
-</div>
-<div class="section" id="custom-parameters">
-<span id="custom-parameter"></span><span id="id1"></span><h2>Custom Parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="custom-parameters">
+<span id="custom-parameter"></span><span id="id1"></span><h2>Custom Parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this heading"></a></h2>
 <p>This is a very important part of the plugin. This is where you can define custom parameters that can be
 used by end users to interact with your custom endpoints.</p>
 <p>In order to use that, first of all you must add it using the <strong>Custom Parameters</strong> section. There are a couple
@@ -135,9 +136,28 @@ of settings you can define for each parameter:</p>
 <li><p>Default: you can put any default value for your parameter here to be used in case of missing it</p></li>
 </ul>
 <p>After defining the custom parameter it is time to use that somewhere and that you already learned in the <a class="reference internal" href="#source-field">source field</a> section.</p>
-</div>
-<div class="section" id="endpoint-privacy">
-<h2>Endpoint Privacy<a class="headerlink" href="#endpoint-privacy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conditional-display">
+<span id="id2"></span><h2>Conditional Display<a class="headerlink" href="#conditional-display" title="Permalink to this heading"></a></h2>
+<p>This feature will allow you to conditionally display some field in the output of several endpoint types, such as: Posts Display,
+Taxonomies Display, Users Display, and Custom Table Display.</p>
+<p>As soon as you add some field in the output of a endpoint, you will see a section called “Conditional Display”.
+The next step is to add at least one <a class="reference internal" href="#custom-parameter">custom parameter</a>. As a last step you will have to fill the 3 fields accordingly:</p>
+<ul class="simple">
+<li><p>Conditional Parameter: this is the parameter that will control whether a field should be displayed in the output or not.</p></li>
+<li><p>Compare: the comparison type</p></li>
+<li><p>Conditional value: the value that should be present in the custom parameter in order to show the output field.</p></li>
+</ul>
+<p>E.g.: Imagine that you have a custom parameter in the URL called “show_prices”. Then you want to show the price field in the output
+only if the value of “show_prices” is equals to “yes”. Then this is what you have to do:</p>
+<ul class="simple">
+<li><p>Add a custom parameter called “show_prices”</p></li>
+<li><p>Add an output field, the price field you want to conditionally show</p></li>
+<li><p>In the output field area, select “show_prices” in the “Conditional Parameter” field, then in “Compare” select “Equal to” and in “Value” type “yes”</p></li>
+</ul>
+</section>
+<section id="endpoint-privacy">
+<h2>Endpoint Privacy<a class="headerlink" href="#endpoint-privacy" title="Permalink to this heading"></a></h2>
 <p>Your custom routes can be whether protected or public. If don’t want to protect your custom route, then you can
 simply ignore this section.</p>
 <p>If you want to protect that, then you can choose some capability in the <strong>Endpoint Privacy</strong> section.</p>
@@ -145,16 +165,16 @@ simply ignore this section.</p>
 This would make the request fail if the logged user has no capability of <cite>manage_options</cite> (non-administrators).</p>
 <p><strong>One very important note here is that you must use a third-party plugin for handling the authentication of
 your REST requests (JWT, OAuth).</strong></p>
-</div>
-<div class="section" id="endpoint-type">
-<h2>Endpoint Type<a class="headerlink" href="#endpoint-type" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="endpoint-type">
+<h2>Endpoint Type<a class="headerlink" href="#endpoint-type" title="Permalink to this heading"></a></h2>
 <p>This is a key part of the plugin, where you will define the purpose of your endpoint. There are distinct options available
 for every Endpoint Type. So, as soon as you switch the type, the right options will be displayed to you.</p>
-<div class="section" id="posts">
-<h3>Posts<a class="headerlink" href="#posts" title="Permalink to this headline">¶</a></h3>
+<section id="posts">
+<h3>Posts<a class="headerlink" href="#posts" title="Permalink to this heading"></a></h3>
 <p>You will see on this section endpoint types responsible for creating endpoints for posts as well as associated custom fields and taxonomies.</p>
-<div class="section" id="display-posts">
-<h4>Display Posts<a class="headerlink" href="#display-posts" title="Permalink to this headline">¶</a></h4>
+<section id="display-posts">
+<h4>Display Posts<a class="headerlink" href="#display-posts" title="Permalink to this heading"></a></h4>
 <p>This should be used for outputting posts as well as associated custom fields and taxonomies.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -264,9 +284,9 @@ the complete list of fields that you can expose:</p>
 <li><p>Taxonomy</p></li>
 <li><p>To ping</p></li>
 </ul>
-</div>
-<div class="section" id="edit-posts">
-<h4>Edit Posts<a class="headerlink" href="#edit-posts" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="edit-posts">
+<h4>Edit Posts<a class="headerlink" href="#edit-posts" title="Permalink to this heading"></a></h4>
 <p>This endpoint type can be used to edit some post as well as associated custom fields and taxonomy terms.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -301,9 +321,9 @@ the new one associated to the post.</p>
 <p>For each taxonomy you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type and “Field type” which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
 how to populate the taxonomy term when editing the post.</p>
-</div>
-<div class="section" id="create-posts">
-<h4>Create Posts<a class="headerlink" href="#create-posts" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="create-posts">
+<h4>Create Posts<a class="headerlink" href="#create-posts" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used to create new posts as well as associate custom fields and taxonomy terms.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -333,13 +353,13 @@ how to populate the custom field when creating the new post.</p>
 <p>For each taxonomy you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type and “Field type” which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
 how to populate the taxonomy term when creating the new post.</p>
-</div>
-</div>
-<div class="section" id="taxonomies">
-<h3>Taxonomies<a class="headerlink" href="#taxonomies" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="taxonomies">
+<h3>Taxonomies<a class="headerlink" href="#taxonomies" title="Permalink to this heading"></a></h3>
 <p>On this section you will see the endpoint types responsible for creating endpoints for taxonomy terms.</p>
-<div class="section" id="display-taxonomies">
-<h4>Display Taxonomies<a class="headerlink" href="#display-taxonomies" title="Permalink to this headline">¶</a></h4>
+<section id="display-taxonomies">
+<h4>Display Taxonomies<a class="headerlink" href="#display-taxonomies" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to display taxonomy terms as well as associated term meta fields.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -366,13 +386,13 @@ how to populate the taxonomy term when creating the new post.</p>
 <li><p>Count</p></li>
 <li><p>Custom field: <strong>this is a special field, if you choose this one you will need to also fill a new field called “Custom field name”</strong></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="users">
-<h3>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="users">
+<h3>Users<a class="headerlink" href="#users" title="Permalink to this heading"></a></h3>
 <p>Now it’s time to learn about the endpoint types responsible by handling actions on users as well as connected user meta fields.</p>
-<div class="section" id="display-users">
-<h4>Display Users<a class="headerlink" href="#display-users" title="Permalink to this headline">¶</a></h4>
+<section id="display-users">
+<h4>Display Users<a class="headerlink" href="#display-users" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to output information about users.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -418,9 +438,9 @@ how to populate the taxonomy term when creating the new post.</p>
 <li><p>User display name</p></li>
 <li><p>Custom field: <strong>this is a special field, if you choose this one you will need to also fill a new field called “Custom field name”</strong></p></li>
 </ul>
-</div>
-<div class="section" id="create-users">
-<h4>Create Users<a class="headerlink" href="#create-users" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="create-users">
+<h4>Create Users<a class="headerlink" href="#create-users" title="Permalink to this heading"></a></h4>
 <p>This endpoint type is the one that should be used for creating new users.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -443,9 +463,9 @@ how to retrieve the data for the user fields when creating new users.</p>
 <p><strong>Custom Fields</strong></p>
 <p>When adding a new user through your custom endpoint you will also be able to associate custom fields to it.</p>
 <p>For each custom field you will have to fill two fields, the source field and “Custom field name”. This is required in order to inform the endpoint how to populate the custom field when creating the new user.</p>
-</div>
-<div class="section" id="edit-users">
-<h4>Edit Users<a class="headerlink" href="#edit-users" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="edit-users">
+<h4>Edit Users<a class="headerlink" href="#edit-users" title="Permalink to this heading"></a></h4>
 <p>This endpoint type can be used to edit some user as well as associated custom fields.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -469,15 +489,15 @@ the endpoint how it will populate the user fields.</p>
 <p>For each custom field you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
 how to populate the custom field when editing the user.</p>
 <p>Notice that you can add as many custom fields as you need.</p>
-</div>
-</div>
-<div class="section" id="custom-tables">
-<h3>Custom Tables<a class="headerlink" href="#custom-tables" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="custom-tables">
+<h3>Custom Tables<a class="headerlink" href="#custom-tables" title="Permalink to this heading"></a></h3>
 <p>WordPress database structure is very powerful, however, sometimes we still need to create custom tables maybe because of performance or for filling a very particular
 need.</p>
 <p>Rest Routes is fully compatible with custom tables, which means that you can create custom endpoints for doing anything with custom tables.</p>
-<div class="section" id="display-items">
-<h4>Display Items<a class="headerlink" href="#display-items" title="Permalink to this headline">¶</a></h4>
+<section id="display-items">
+<h4>Display Items<a class="headerlink" href="#display-items" title="Permalink to this heading"></a></h4>
 <p>This is the endpoint type that can be used whenever you need to display items from custom tables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -494,9 +514,9 @@ will refine the results that your endpoint will output.</p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
 <p>Here is where you can define which columns of the table should be displayed in the output. By default all the columns will be displayed.</p>
-</div>
-<div class="section" id="create-items">
-<h4>Create Items<a class="headerlink" href="#create-items" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="create-items">
+<h4>Create Items<a class="headerlink" href="#create-items" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to create items on custom tables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -510,9 +530,9 @@ will refine the results that your endpoint will output.</p>
 the endpoint how it will populate the custom table field.</p>
 <p>Also, we’ve recently introduced a new field here called “Type to store”. This field should be used whenever you want to
 store the data in database in a particular format, possible values are: raw, JSON and serialized.</p>
-</div>
-<div class="section" id="edit-items">
-<h4>Edit Items<a class="headerlink" href="#edit-items" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="edit-items">
+<h4>Edit Items<a class="headerlink" href="#edit-items" title="Permalink to this heading"></a></h4>
 <p><strong>Table Selection</strong></p>
 <p>This is a required section, where you should choose which table you will want to edit data.</p>
 <div class="admonition note">
@@ -534,9 +554,9 @@ store the data in database in a particular format, possible values are: raw, JSO
 (AND | OR).</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table field.</p>
-</div>
-<div class="section" id="delete-items">
-<h4>Delete Items<a class="headerlink" href="#delete-items" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="delete-items">
+<h4>Delete Items<a class="headerlink" href="#delete-items" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used for deleting entries from custom tables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -552,11 +572,43 @@ the endpoint how it will populate the custom table field.</p>
 <p>This section is the one which will limit the range of affected entries.</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will retrieve the custom table column data.</p>
+</section>
+</section>
+<section id="rest-api-call">
+<h3>REST API Call<a class="headerlink" href="#rest-api-call" title="Permalink to this heading"></a></h3>
+<p>Use this action if you want to perform a REST call through your own endpoint. This can be very handy when you need to
+notify a third party service when certain action is done.</p>
+<p>A few options are available for this endpoint type in the Basic information tab:</p>
+<ul class="simple">
+<li><p>Method: the HTTP request method you want to perform</p></li>
+<li><p>URL: the URL you want to call</p></li>
+<li><p>Basic authentication: provide the user and password for the basic authentication in case the request is protected</p></li>
+</ul>
+<p>When you go to the “Request parameters” tab, you will be able to add as many parameters as you want in order to compose
+the URL. Of course, custom parameters will be accepted here and will be carried along from the original request done
+on your custom endpoint.</p>
+<p>In Request body you can compose the body of the request as you wish.</p>
+<p>In Request headers you can add as many headers as you want, also supporting custom parameters that can be carried from
+the original request into the new request you will perform.</p>
+<p>As an output for the endpoint you have two options:</p>
+<ul class="simple">
+<li><p>Normal field: where you can add as many fields as you wish in order to be rendered as output of you request after the extra request is done.</p></li>
+<li><p>Request response: the response of the extra request will be displayed in the output.</p></li>
+</ul>
+</section>
+<section id="custom-sql-query">
+<h3>Custom SQL Query<a class="headerlink" href="#custom-sql-query" title="Permalink to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using wrong queries.</p>
 </div>
-</div>
-</div>
-<div class="section" id="query-groups">
-<span id="id2"></span><h2>Query Groups<a class="headerlink" href="#query-groups" title="Permalink to this headline">¶</a></h2>
+<p>Given the disclaimer above, this is a very advanced and useful endpoint. It lets you build complex custom SQL queries for both
+update, delete and display table entries.</p>
+<p>The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.</p>
+</section>
+</section>
+<section id="query-groups">
+<span id="id3"></span><h2>Query Groups<a class="headerlink" href="#query-groups" title="Permalink to this heading"></a></h2>
 <p>Query groups are options that will appear when you are dealing with filters for Custom Fields and Taxonomies. This is a way of dealing with complexes queries, so you can
 break the filter in two or more groups.</p>
 <p>When working with <strong>WP_Query</strong> the <cite>meta_query</cite> clauses can be nested in order to construct complex queries.
@@ -597,9 +649,9 @@ $query = new WP_Query( $args );
 <li><p>Add a new custom field filter for <strong>color</strong> and choose the group you already created</p></li>
 <li><p>Add a new custom field filter for <strong>size</strong> and also choose the same group like above</p></li>
 </ul>
-</div>
-<div class="section" id="custom-fields-filter">
-<span id="custom-fields"></span><h2>Custom Fields Filter<a class="headerlink" href="#custom-fields-filter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="custom-fields-filter">
+<span id="custom-fields"></span><h2>Custom Fields Filter<a class="headerlink" href="#custom-fields-filter" title="Permalink to this heading"></a></h2>
 <p>Here is where you can add filters for your posts based on values of associated custom fields. You can add as many filters of this kind as you want
 and each one has a set of fields:</p>
 <ul class="simple">
@@ -609,9 +661,9 @@ and each one has a set of fields:</p>
 <li><p><strong>Type</strong>: the type that the query should treat this field</p></li>
 <li><p><strong>Query Group</strong>: this field appears only when there is a query group already defined. For more details about this one please check the <a class="reference internal" href="#query-groups">query groups</a> section</p></li>
 </ul>
-</div>
-<div class="section" id="ordering">
-<h2>Ordering<a class="headerlink" href="#ordering" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ordering">
+<h2>Ordering<a class="headerlink" href="#ordering" title="Permalink to this heading"></a></h2>
 <p>This one should be used to define an order for the items that you are outputting which can be posts, terms, users, custom table items, etc. You have two group of fields
 that you should fill:</p>
 <ul class="simple">
@@ -628,30 +680,30 @@ that you should fill:</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="limit-and-offset">
-<h2>Limit and Offset<a class="headerlink" href="#limit-and-offset" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="limit-and-offset">
+<h2>Limit and Offset<a class="headerlink" href="#limit-and-offset" title="Permalink to this heading"></a></h2>
 <p>On this section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both group of fields contains only one field
 which is the <a class="reference internal" href="#source-field">source field</a>.</p>
 <p>This is very handy for paginating items! You can set the limit by 10 and skip items per some <a class="reference internal" href="#custom-parameter">custom parameter</a>. So, depending on the custom parameter
 value that the end user will pass to the endpoint, it will skip <strong>X</strong> posts thus producing a pagination effect.</p>
-</div>
-</div>
-<div class="section" id="third-party-compatibility">
-<h1>Third-party Compatibility<a class="headerlink" href="#third-party-compatibility" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section id="third-party-compatibility">
+<h1>Third-party Compatibility<a class="headerlink" href="#third-party-compatibility" title="Permalink to this heading"></a></h1>
 <p>Currently, Rest Routes is compatible with the following plugins:</p>
 <ul class="simple">
 <li><p>ACF</p></li>
 <li><p>Toolset Types</p></li>
 </ul>
-</div>
-<div class="section" id="hooks">
-<h1>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="hooks">
+<h1>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading"></a></h1>
 <p>As any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.</p>
-<div class="section" id="actions">
-<h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Posts<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="actions">
+<h2>Actions<a class="headerlink" href="#actions" title="Permalink to this heading"></a></h2>
+<section id="id4">
+<h3>Posts<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p><strong>do_action(‘rest_routes_before_create_posts_callback’, $data, $endpoint)</strong></p>
 <p>Called right before the creation of posts. Parameters:</p>
 <ul class="simple">
@@ -677,12 +729,12 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the edited post</p></li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h3>Taxonomies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id5">
-<h3>Users<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id5">
+<h3>Taxonomies<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+</section>
+<section id="id6">
+<h3>Users<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p><strong>do_action(‘rest_routes_before_create_users’, $data, $endpoint);</strong></p>
 <p>Called right before the creation of users. Parameters:</p>
 <ul class="simple">
@@ -708,9 +760,9 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the edited user</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
-<h3>Custom Tables<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h3>Custom Tables<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p><strong>do_action(‘rest_routes_before_create_custom_table’, $data, $endpoint)</strong></p>
 <p>Called right before the creation of items on custom table. Parameters:</p>
 <ul class="simple">
@@ -748,12 +800,42 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
-<h3>Posts<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id8">
+<h3>REST API Call<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<p><strong>do_action(‘rest_routes_before_call_rest_api_call_callback’, $data, $endpoint)</strong></p>
+<p>Called before the REST API request is performed.</p>
+<ul class="simple">
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+</ul>
+<p><strong>rest_routes_after_call_rest_api_call_callback($data, $endpoint)</strong></p>
+<p>Called after the REST API request is performed.</p>
+<ul class="simple">
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Custom SQL Query<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p><strong>do_action(‘rest_routes_before_call_custom_sql_query_callback’, $data, $endpoint)</strong></p>
+<p>Called right before the custom SQL query is executed.</p>
+<ul class="simple">
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+</ul>
+<p><strong>do_action(‘rest_routes_after_call_custom_sql_query_callback’, $data, $endpoint)</strong></p>
+<p>Called right after the custom SQL query is executed.</p>
+<ul class="simple">
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+</ul>
+</section>
+</section>
+<section id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this heading"></a></h2>
+<section id="id10">
+<h3>Posts<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(‘rest_routes_output_custom_field’, $customFieldValue, $outputField, $elementId )</strong></p>
 <p>It lets you filter the value of custom fields that will be outputted through <strong>Display Posts</strong> endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
@@ -815,9 +897,17 @@ to the third-party plugin format.</p>
 </ul>
 <p><strong>apply_filters(‘rest_routes_output_parent_field_prefix’, ‘parent_’, $outputField, $post)</strong></p>
 <p>It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is “parent_”.</p>
-</div>
-<div class="section" id="id8">
-<h3>Taxonomies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><strong>apply_filters(‘rest_routes_should_process_tax_cf_on_post_creation’, true, $endpoint, $request_data, $postId)</strong></p>
+<p>Filter added in the Create Posts endpoint and says whether term meta fields should be updated on post creation, parameters:</p>
+<ul class="simple">
+<li><p>result: boolean which says whether term meta fields should be updated, default is <cite>true</cite></p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+<li><p>id: the id of the post</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>Taxonomies<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(‘rest_routes_display_taxonomies_results’, $result, $data, $endpoint )</strong></p>
 <p>It lets you filter the result of the endpoint for displaying taxonomy terms. Parameters:</p>
 <ul class="simple">
@@ -825,9 +915,9 @@ to the third-party plugin format.</p>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-</div>
-<div class="section" id="id9">
-<h3>Users<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id12">
+<h3>Users<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(rest_routes_output_custom_field’, $customFieldValue, $outputField, $elementId )</strong></p>
 <p>It lets you filter the value of custom fields that will be outputted through <strong>Display Users</strong> endpoint type. We use it
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
@@ -863,9 +953,9 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>id: the id of the edited user</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h3>Custom Tables<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id13">
+<h3>Custom Tables<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(‘rest_routes_create_custom_table_result’, $result, $data, $endpoint, $id )</strong></p>
 <p>It lets you filter the result of the endpoint for creation of items in custom table. Parameters:</p>
 <ul class="simple">
@@ -885,32 +975,71 @@ to the third-party plugin format.</p>
 <p>It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
 ‘username’, ‘password’, ‘host’, ‘database’.</p>
-</div>
-</div>
-</div>
-<div class="section" id="faq">
-<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="does-this-plugin-offer-rest-api-authentication">
-<h2>Does this plugin offer REST API authentication?<a class="headerlink" href="#does-this-plugin-offer-rest-api-authentication" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id14">
+<h3>REST API Call<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<p><strong>rest_routes_call_rest_api_call_result($result, $endpoint, $data)</strong></p>
+<p>It lets you filter the response of the endpoint:</p>
+<ul class="simple">
+<li><p>result: the result of the response</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Custom SQL Query<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<p><strong>rest_routes_custom_sql_query($query, $data, $endpoint)</strong></p>
+<p>It lets you filter the SQL query that will be performed by the endpoint:</p>
+<ul class="simple">
+<li><p>query: the query saved in the endpoint</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+</ul>
+<p><strong>rest_routes_call_custom_sql_query_result_error($result, $endpoint, $data)</strong></p>
+<p>It lets you filter the result of the request when some error happened:</p>
+<ul class="simple">
+<li><p>result: the result of the query</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+</ul>
+<p><strong>rest_routes_call_custom_sql_query_result_success($result, $endpoint, $data)</strong></p>
+<p>It lets you filter the result of the request when everything went well:</p>
+<ul class="simple">
+<li><p>result: the result of the query</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
+</ul>
+</section>
+<section id="third-party">
+<h3>Third Party<a class="headerlink" href="#third-party" title="Permalink to this heading"></a></h3>
+<p><strong>apply_filters(‘rest_routes_disable_wp_rest_route_cache’, bool $value)</strong></p>
+<p>It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default it is set to false.</p>
+</section>
+</section>
+</section>
+<section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
+<section id="does-this-plugin-offer-rest-api-authentication">
+<h2>Does this plugin offer REST API authentication?<a class="headerlink" href="#does-this-plugin-offer-rest-api-authentication" title="Permalink to this heading"></a></h2>
 <p>No. Rest Routes Pro lets you define the privacy of your endpoints, so you define which category of user will be able to use your endpoint, however, this feature must be used with some authentication plugin, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
-</div>
-<div class="section" id="can-i-have-more-than-one-endpoint-for-my-route">
-<h2>Can I have more than one endpoint for my route?<a class="headerlink" href="#can-i-have-more-than-one-endpoint-for-my-route" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="can-i-have-more-than-one-endpoint-for-my-route">
+<h2>Can I have more than one endpoint for my route?<a class="headerlink" href="#can-i-have-more-than-one-endpoint-for-my-route" title="Permalink to this heading"></a></h2>
 <p>Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button “Add new endpoint”, this is the button that you should click in.</p>
-</div>
-<div class="section" id="can-i-use-dynamic-data-such-as-current-user-id-email-etc">
-<h2>Can I use dynamic data, such as current user ID, email, etc?<a class="headerlink" href="#can-i-use-dynamic-data-such-as-current-user-id-email-etc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="can-i-use-dynamic-data-such-as-current-user-id-email-etc">
+<h2>Can I use dynamic data, such as current user ID, email, etc?<a class="headerlink" href="#can-i-use-dynamic-data-such-as-current-user-id-email-etc" title="Permalink to this heading"></a></h2>
 <p>Yes, when adding any filter, you can select “Dynamic” in the Source field. There, you will be able to use current user fields as well as current date fields. Dont’ forget to use some authenticator plugin if you want to use current user data, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
-</div>
-<div class="section" id="does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables">
-<h2>Does this plugin works with custom tables or only with default WordPress tables?<a class="headerlink" href="#does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables">
+<h2>Does this plugin works with custom tables or only with default WordPress tables?<a class="headerlink" href="#does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables" title="Permalink to this heading"></a></h2>
 <p>Yes, it works with custom tables. You can create endpoints for displaying, creating, editing and deleting data from any database table.</p>
-</div>
-<div class="section" id="can-i-work-with-non-default-databases">
-<h2>Can I work with non-default databases?<a class="headerlink" href="#can-i-work-with-non-default-databases" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="can-i-work-with-non-default-databases">
+<h2>Can I work with non-default databases?<a class="headerlink" href="#can-i-work-with-non-default-databases" title="Permalink to this heading"></a></h2>
 <p>Yes, with this <a class="reference internal" href="#custom-table-database-filter">custom table database filter</a> you can change the database used for the custom table endpoints.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -919,8 +1048,9 @@ You can change it by returning an array containing the connection credentials to
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Rest Routes Pro</a></li>
 <li><a class="reference internal" href="#who-is-that-for">Who is that For</a></li>
 <li><a class="reference internal" href="#custom-endpoints">Custom Endpoints</a><ul>
@@ -930,6 +1060,7 @@ You can change it by returning an array containing the connection credentials to
 <li><a class="reference internal" href="#the-source-field">The Source Field</a></li>
 <li><a class="reference internal" href="#multiple-values-field">Multiple-values Field</a></li>
 <li><a class="reference internal" href="#custom-parameters">Custom Parameters</a></li>
+<li><a class="reference internal" href="#conditional-display">Conditional Display</a></li>
 <li><a class="reference internal" href="#endpoint-privacy">Endpoint Privacy</a></li>
 <li><a class="reference internal" href="#endpoint-type">Endpoint Type</a><ul>
 <li><a class="reference internal" href="#posts">Posts</a><ul>
@@ -955,6 +1086,8 @@ You can change it by returning an array containing the connection credentials to
 <li><a class="reference internal" href="#delete-items">Delete Items</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#rest-api-call">REST API Call</a></li>
+<li><a class="reference internal" href="#custom-sql-query">Custom SQL Query</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#query-groups">Query Groups</a></li>
@@ -966,17 +1099,22 @@ You can change it by returning an array containing the connection credentials to
 <li><a class="reference internal" href="#third-party-compatibility">Third-party Compatibility</a></li>
 <li><a class="reference internal" href="#hooks">Hooks</a><ul>
 <li><a class="reference internal" href="#actions">Actions</a><ul>
-<li><a class="reference internal" href="#id3">Posts</a></li>
-<li><a class="reference internal" href="#id4">Taxonomies</a></li>
-<li><a class="reference internal" href="#id5">Users</a></li>
-<li><a class="reference internal" href="#id6">Custom Tables</a></li>
+<li><a class="reference internal" href="#id4">Posts</a></li>
+<li><a class="reference internal" href="#id5">Taxonomies</a></li>
+<li><a class="reference internal" href="#id6">Users</a></li>
+<li><a class="reference internal" href="#id7">Custom Tables</a></li>
+<li><a class="reference internal" href="#id8">REST API Call</a></li>
+<li><a class="reference internal" href="#id9">Custom SQL Query</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#filters">Filters</a><ul>
-<li><a class="reference internal" href="#id7">Posts</a></li>
-<li><a class="reference internal" href="#id8">Taxonomies</a></li>
-<li><a class="reference internal" href="#id9">Users</a></li>
-<li><a class="reference internal" href="#id10">Custom Tables</a></li>
+<li><a class="reference internal" href="#id10">Posts</a></li>
+<li><a class="reference internal" href="#id11">Taxonomies</a></li>
+<li><a class="reference internal" href="#id12">Users</a></li>
+<li><a class="reference internal" href="#id13">Custom Tables</a></li>
+<li><a class="reference internal" href="#id14">REST API Call</a></li>
+<li><a class="reference internal" href="#id15">Custom SQL Query</a></li>
+<li><a class="reference internal" href="#third-party">Third Party</a></li>
 </ul>
 </li>
 </ul>
@@ -991,6 +1129,7 @@ You can change it by returning an array containing the connection credentials to
 </li>
 </ul>
 
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1002,12 +1141,12 @@ You can change it by returning an array containing the connection credentials to
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1024,7 +1163,7 @@ You can change it by returning an array containing the connection credentials to
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Adriano Ferreira.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
     </div>
   </body>
 </html>

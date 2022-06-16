@@ -140,6 +140,28 @@ of settings you can define for each parameter:
 
 After defining the custom parameter it is time to use that somewhere and that you already learned in the `source field`_ section.
 
+.. _`conditional display`:
+
+Conditional Display
+-------------------
+
+This feature will allow you to conditionally display some field in the output of several endpoint types, such as: Posts Display,
+Taxonomies Display, Users Display, and Custom Table Display.
+
+As soon as you add some field in the output of a endpoint, you will see a section called "Conditional Display".
+The next step is to add at least one `custom parameter`_. As a last step you will have to fill the 3 fields accordingly:
+
+- Conditional Parameter: this is the parameter that will control whether a field should be displayed in the output or not.
+- Compare: the comparison type
+- Conditional value: the value that should be present in the custom parameter in order to show the output field.
+
+E.g.: Imagine that you have a custom parameter in the URL called "show_prices". Then you want to show the price field in the output
+only if the value of "show_prices" is equals to "yes". Then this is what you have to do:
+
+- Add a custom parameter called "show_prices"
+- Add an output field, the price field you want to conditionally show
+- In the output field area, select "show_prices" in the "Conditional Parameter" field, then in "Compare" select "Equal to" and in "Value" type "yes"
+
 Endpoint Privacy
 -----------------
 
@@ -648,6 +670,42 @@ This section is the one which will limit the range of affected entries.
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will retrieve the custom table column data.
 
+REST API Call
++++++++++++++++
+
+Use this action if you want to perform a REST call through your own endpoint. This can be very handy when you need to
+notify a third party service when certain action is done.
+
+A few options are available for this endpoint type in the Basic information tab:
+
+- Method: the HTTP request method you want to perform
+- URL: the URL you want to call
+- Basic authentication: provide the user and password for the basic authentication in case the request is protected
+
+When you go to the "Request parameters" tab, you will be able to add as many parameters as you want in order to compose
+the URL. Of course, custom parameters will be accepted here and will be carried along from the original request done
+on your custom endpoint.
+
+In Request body you can compose the body of the request as you wish.
+
+In Request headers you can add as many headers as you want, also supporting custom parameters that can be carried from
+the original request into the new request you will perform.
+
+As an output for the endpoint you have two options:
+
+- Normal field: where you can add as many fields as you wish in order to be rendered as output of you request after the extra request is done.
+- Request response: the response of the extra request will be displayed in the output.
+
+Custom SQL Query
++++++++++++++++++
+
+.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using wrong queries.
+
+Given the disclaimer above, this is a very advanced and useful endpoint. It lets you build complex custom SQL queries for both
+update, delete and display table entries.
+
+The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.
+
 .. _`query groups`:
 
 Query Groups
@@ -863,6 +921,40 @@ Called right after editing custom table items. Parameters:
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
+REST API Call
++++++++++++++++++
+
+**do_action('rest_routes_before_call_rest_api_call_callback', $data, $endpoint)**
+
+Called before the REST API request is performed.
+
+- data: the `\WP_REST_Request` object
+- endpoint: the endpoint object
+
+**rest_routes_after_call_rest_api_call_callback($data, $endpoint)**
+
+Called after the REST API request is performed.
+
+- data: the `\WP_REST_Request` object
+- endpoint: the endpoint object
+
+Custom SQL Query
++++++++++++++++++
+
+**do_action('rest_routes_before_call_custom_sql_query_callback', $data, $endpoint)**
+
+Called right before the custom SQL query is executed.
+
+- data: the `\WP_REST_Request` object
+- endpoint: the endpoint object
+
+**do_action('rest_routes_after_call_custom_sql_query_callback', $data, $endpoint)**
+
+Called right after the custom SQL query is executed.
+
+- data: the `\WP_REST_Request` object
+- endpoint: the endpoint object
+
 Filters
 -------
 
@@ -940,6 +1032,15 @@ It lets you filter the result of the endpoint for editing a post. Parameters:
 **apply_filters('rest_routes_output_parent_field_prefix', 'parent_', $outputField, $post)**
 
 It lets you define the prefix of the parent fields in the output of your endpoints. By default, it is "parent\_".
+
+**apply_filters('rest_routes_should_process_tax_cf_on_post_creation', true, $endpoint, $request_data, $postId)**
+
+Filter added in the Create Posts endpoint and says whether term meta fields should be updated on post creation, parameters:
+
+- result: boolean which says whether term meta fields should be updated, default is `true`
+- endpoint: the endpoint object
+- data: the `\WP_REST_Request` object
+- id: the id of the post
 
 Taxonomies
 +++++++++++
@@ -1023,6 +1124,51 @@ It lets you filter the result of the endpoint for displaying items from custom t
 It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
 'username', 'password', 'host', 'database'.
+
+REST API Call
++++++++++++++++++
+
+**rest_routes_call_rest_api_call_result($result, $endpoint, $data)**
+
+It lets you filter the response of the endpoint:
+
+- result: the result of the response
+- endpoint: the endpoint object
+- data: the `\WP_REST_Request` object
+
+Custom SQL Query
++++++++++++++++++
+
+**rest_routes_custom_sql_query($query, $data, $endpoint)**
+
+It lets you filter the SQL query that will be performed by the endpoint:
+
+- query: the query saved in the endpoint
+- endpoint: the endpoint object
+- data: the `\WP_REST_Request` object
+
+**rest_routes_call_custom_sql_query_result_error($result, $endpoint, $data)**
+
+It lets you filter the result of the request when some error happened:
+
+- result: the result of the query
+- endpoint: the endpoint object
+- data: the `\WP_REST_Request` object
+
+**rest_routes_call_custom_sql_query_result_success($result, $endpoint, $data)**
+
+It lets you filter the result of the request when everything went well:
+
+- result: the result of the query
+- endpoint: the endpoint object
+- data: the `\WP_REST_Request` object
+
+Third Party
+++++++++++++++
+
+**apply_filters('rest_routes_disable_wp_rest_route_cache', bool $value)**
+
+It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default it is set to false.
 
 FAQ
 ================
