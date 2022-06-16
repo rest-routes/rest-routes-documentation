@@ -809,7 +809,7 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
-<p><strong>rest_routes_after_call_rest_api_call_callback($data, $endpoint)</strong></p>
+<p><strong>do_action(‘rest_routes_after_call_rest_api_call_callback’, $data, $endpoint)</strong></p>
 <p>Called after the REST API request is performed.</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -978,7 +978,7 @@ You can change it by returning an array containing the connection credentials to
 </section>
 <section id="id14">
 <h3>REST API Call<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
-<p><strong>rest_routes_call_rest_api_call_result($result, $endpoint, $data)</strong></p>
+<p><strong>apply_filters(‘rest_routes_call_rest_api_call_result, $result, $endpoint, $data)</strong></p>
 <p>It lets you filter the response of the endpoint:</p>
 <ul class="simple">
 <li><p>result: the result of the response</p></li>
@@ -988,21 +988,21 @@ You can change it by returning an array containing the connection credentials to
 </section>
 <section id="id15">
 <h3>Custom SQL Query<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
-<p><strong>rest_routes_custom_sql_query($query, $data, $endpoint)</strong></p>
+<p><strong>apply_filters(‘rest_routes_custom_sql_query’, $query, $data, $endpoint)</strong></p>
 <p>It lets you filter the SQL query that will be performed by the endpoint:</p>
 <ul class="simple">
 <li><p>query: the query saved in the endpoint</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 </ul>
-<p><strong>rest_routes_call_custom_sql_query_result_error($result, $endpoint, $data)</strong></p>
+<p><strong>apply_filters(‘rest_routes_call_custom_sql_query_result_error, $result, $endpoint, $data)</strong></p>
 <p>It lets you filter the result of the request when some error happened:</p>
 <ul class="simple">
 <li><p>result: the result of the query</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 </ul>
-<p><strong>rest_routes_call_custom_sql_query_result_success($result, $endpoint, $data)</strong></p>
+<p><strong>apply_filters(‘rest_routes_call_custom_sql_query_result_success, $result, $endpoint, $data)</strong></p>
 <p>It lets you filter the result of the request when everything went well:</p>
 <ul class="simple">
 <li><p>result: the result of the query</p></li>

@@ -931,7 +931,7 @@ Called before the REST API request is performed.
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
-**rest_routes_after_call_rest_api_call_callback($data, $endpoint)**
+**do_action('rest_routes_after_call_rest_api_call_callback', $data, $endpoint)**
 
 Called after the REST API request is performed.
 
@@ -1128,7 +1128,7 @@ You can change it by returning an array containing the connection credentials to
 REST API Call
 +++++++++++++++++
 
-**rest_routes_call_rest_api_call_result($result, $endpoint, $data)**
+**apply_filters('rest_routes_call_rest_api_call_result, $result, $endpoint, $data)**
 
 It lets you filter the response of the endpoint:
 
@@ -1139,7 +1139,7 @@ It lets you filter the response of the endpoint:
 Custom SQL Query
 +++++++++++++++++
 
-**rest_routes_custom_sql_query($query, $data, $endpoint)**
+**apply_filters('rest_routes_custom_sql_query', $query, $data, $endpoint)**
 
 It lets you filter the SQL query that will be performed by the endpoint:
 
@@ -1147,7 +1147,7 @@ It lets you filter the SQL query that will be performed by the endpoint:
 - endpoint: the endpoint object
 - data: the `\WP_REST_Request` object
 
-**rest_routes_call_custom_sql_query_result_error($result, $endpoint, $data)**
+**apply_filters('rest_routes_call_custom_sql_query_result_error, $result, $endpoint, $data)**
 
 It lets you filter the result of the request when some error happened:
 
@@ -1155,7 +1155,7 @@ It lets you filter the result of the request when some error happened:
 - endpoint: the endpoint object
 - data: the `\WP_REST_Request` object
 
-**rest_routes_call_custom_sql_query_result_success($result, $endpoint, $data)**
+**apply_filters('rest_routes_call_custom_sql_query_result_success, $result, $endpoint, $data)**
 
 It lets you filter the result of the request when everything went well:
 
