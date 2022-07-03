@@ -21,7 +21,7 @@ This plugin is recommended for you that is developing WordPress applications tha
 
 **WordPress Headless Applications**
 
-If you are simply using the WordPress as a back-end application, which means that you are not using anything related to the front-end of the WordPress, such as Themes, then this plugin is fully recommended for you. You can easily build custom routes that will let you expose your back-end data and also populate existing database tables.
+If you are simply using WordPress as a back-end application, which means that you are not using anything related to the front-end of WordPress, such as Themes, then this plugin is fully recommended for you. You can easily build custom routes that will let you expose your back-end data and also populate existing database tables.
 
 Custom Endpoints
 ==================
@@ -37,9 +37,9 @@ text fields:
 
 **Namespace**
 
-Namespaces are the first part of the URL for the endpoint. They should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allows for two plugins to add a route of the same name, with different functionality.
+Namespaces are the first part of the URL for the endpoint. They should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allow for two plugins to add a route of the same name, with different functionality.
 
-Namespaces in general should follow the pattern of vendor/v1, where vendor is typically your plugin or theme slug, and v1 represents the first version of the API. If you ever need to break compatibility with new endpoints, you can then bump this to v2.
+Namespaces in general should follow the pattern of vendor/v1, where the vendor is typically your plugin or theme slug, and v1 represents the first version of the API. If you ever need to break compatibility with new endpoints, you can then bump this to v2.
 
 **Route name**
 
@@ -52,11 +52,11 @@ The namespace is `acme/v1` and the route name `some-nice-route`.
 Visibility
 -----------
 
-First of all, you must understand that for each single route you can have many endpoints. So, for instance,
+First of all, you must understand that for every single route you can have many endpoints. So, for instance,
 for the route above `wp-json/acme/v1/some-nice-route` you can have one endpoint for displaying some posts
 using the HTTP GET method and another endpoint for creating posts using the HTTP POST method.
 
-Knowing that, you can whether switch the visibility of your entire route (both endpoints) or only switch
+Knowing that you can whether switch the visibility of your entire route (both endpoints) or only switch
 the visibility of some particular endpoint.
 
 For doing that, you must use the green switcher for enabling or disabling.
@@ -69,7 +69,7 @@ Methods
 
 This is the first left box that you will find once editing or creating a new route. There is where you can
 define which HTTP method you are going to use. You can have up to 4 endpoints on each route and each
-endpoints should be using a different method. Which means that you can't have the same HTTP method for
+endpoint should be using a different method. This means that you can't have the same HTTP method for
 two or more custom endpoints.
 
 In order to follow the recommended practices when working with REST APIs, remember to always use the right
@@ -88,9 +88,9 @@ The Source Field
 -----------------
 
 When creating your custom routes, you will notice that several fields in many places
-contains a field called **Source**. This where you can give a **Fixed Value**, a **Custom Parameter** (see `custom parameters`_) or a **Dynamic** field.
+contain a field called **Source**. This is where you can give a **Fixed Value**, a **Custom Parameter** (see `custom parameters`_), or a **Dynamic** field.
 
-These fields can be found on many places, such as:
+These fields can be found in many places, such as:
 
 - Default filters (e.g.: post id, post type)
 - Custom fields filters
@@ -99,26 +99,26 @@ These fields can be found on many places, such as:
 - Limit and offset
 - and much more
 
-These fields are the ones responsible by customizing your endpoint and that can be by adding some filter or maybe limiting
+These fields are the ones responsible for customizing your endpoint and that can be by adding some filter or maybe limiting
 the number of posts displayed through the endpoint.
 
 If you select the **Fixed Value** option, you will need to provide some value for your field and this value will
 be always used whenever this endpoint will be called.
 
 If you select the **Custom Parameter**, then it will prepare the endpoint for receiving the information
-from the end user. See the `custom parameters`_ section for understanding better how Custom Parameters work.
+from the end-user. See the `custom parameters`_ section for understanding better how Custom Parameters work.
 
 If you select **Dynamic** then it will display another select field where you can choose some dynamic data for the field.
 Currently, it works with date and current user data.
 
-If you select **Request body** then the field will parse the whole body of the request and use in the field.
+If you select **Request body** then the field will parse the whole body of the request and use it in the field.
 
 .. _`multiple values`:
 
 Multiple-values Field
 ---------------------
 
-Those fields accept one or more values. If you defined the `source field`_ of it as **Fixed Value** you can separate the values using comma. When you define it as `custom parameter`_ you can
+Those fields accept one or more values. If you defined the `source field`_ of it as **Fixed Value** you can separate the values using a comma. When you define it as `custom parameter`_ you can
 pass array arguments in the request, something like: **your-url.dev/arg[]=1&arg[]=2&arg[]=3**
 
 .. _`custom parameter`:
@@ -128,12 +128,12 @@ Custom Parameters
 ------------------
 
 This is a very important part of the plugin. This is where you can define custom parameters that can be
-used by end users to interact with your custom endpoints.
+used by end-users to interact with your custom endpoints.
 
-In order to use that, first of all you must add it using the **Custom Parameters** section. There are a couple
+In order to use that, first of all, you must add it using the **Custom Parameters** section. There are a couple
 of settings you can define for each parameter:
 
-- Name: the way to identify your parameter and also the name that end users will use
+- Name: the way to identify your parameter and also the name that end-users will use
 - Type: you can force a type for your parameter
 - Required: marking this option will deny requests that are not passing this parameter
 - Default: you can put any default value for your parameter here to be used in case of missing it
@@ -145,18 +145,18 @@ After defining the custom parameter it is time to use that somewhere and that yo
 Conditional Display
 -------------------
 
-This feature will allow you to conditionally display some field in the output of several endpoint types, such as: Posts Display,
+This feature will allow you to conditionally display some fields in the output of several endpoint types, such as Posts Display,
 Taxonomies Display, Users Display, and Custom Table Display.
 
-As soon as you add some field in the output of a endpoint, you will see a section called "Conditional Display".
-The next step is to add at least one `custom parameter`_. As a last step you will have to fill the 3 fields accordingly:
+As soon as you add some field to the output of an endpoint, you will see a section called "Conditional Display".
+The next step is to add at least one `custom parameter`_. As the last step you will have to fill the 3 fields accordingly:
 
 - Conditional Parameter: this is the parameter that will control whether a field should be displayed in the output or not.
 - Compare: the comparison type
 - Conditional value: the value that should be present in the custom parameter in order to show the output field.
 
 E.g.: Imagine that you have a custom parameter in the URL called "show_prices". Then you want to show the price field in the output
-only if the value of "show_prices" is equals to "yes". Then this is what you have to do:
+only if the value of "show_prices" is equal to "yes". Then this is what you have to do:
 
 - Add a custom parameter called "show_prices"
 - Add an output field, the price field you want to conditionally show
@@ -165,7 +165,7 @@ only if the value of "show_prices" is equals to "yes". Then this is what you hav
 Endpoint Privacy
 -----------------
 
-Your custom routes can be whether protected or public. If don't want to protect your custom route, then you can
+Your custom routes can be protected or public. If don't want to protect your custom route, then you can
 simply ignore this section.
 
 If you want to protect that, then you can choose some capability in the **Endpoint Privacy** section.
@@ -185,14 +185,14 @@ for every Endpoint Type. So, as soon as you switch the type, the right options w
 Posts
 +++++++++
 
-You will see on this section endpoint types responsible for creating endpoints for posts as well as associated custom fields and taxonomies.
+You will see in this section endpoint types responsible for creating endpoints for posts as well as associated custom fields and taxonomies.
 
 Display Posts
 ***************
 
 This should be used for outputting posts as well as associated custom fields and taxonomies.
 
-.. note:: We recommend to use the GET method for this endpoint type in order to follow the best REST practices.
+.. note:: We recommend using the GET method for this endpoint type in order to follow the best REST practices.
 
 Once you select this Endpoint Type you will find several options that will let you completely customize your endpoint. Those options will let you
 refine the results that this endpoint will output:
@@ -212,7 +212,7 @@ Here you can add many filters for different default post fields.
 - **Author name**: the post's author name.
 - **Parent ID**: the post's parent ID. It accepts `multiple values`_
 - **Parent ID not in**: the post's parent id you don't want to return. It accepts `multiple values`_
-- **Post search**: the keywords passed here will be used to look for post by the post title or post content (default WordPress search mechanism)
+- **Post search**: the keywords passed here will be used to look for posts by the post title or post content (default WordPress search mechanism)
 
 Once you choose a filter you will see a field called `source field`_, you should choose the right option accordingly to your needs.
 
@@ -226,12 +226,12 @@ See the `custom fields`_ section for more information about this one.
 
 **Taxonomies Filter**
 
-This one is used for adding filters for multiple taxonomies, in case you want to display posts based in one or more terms. Same as the custom fields section
+This one is used for adding filters for multiple taxonomies, in case you want to display posts based on one or more terms. Same as the custom fields section
 here you can add as many filters as you want for the taxonomies and each filter contains a set of fields:
 
 - **Source** (see `source field`_)
 - **Taxonomy**: the taxonomy that you want to add the filter for
-- **Field type**: the term field that you want to add the filter for, possible values are: Term ID, Name and Slug
+- **Field type**: the term field that you want to add the filter for, possible values are: Term ID, Name, and Slug
 - **Query Group**: this field appears only when there is a query group already defined. For more details about this one please check the `query groups`_ section
 
 **Ordering**
@@ -244,7 +244,7 @@ See the `limit and offset`_ section for more information about this one.
 
 **Output**
 
-On this section you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
+In this section, you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
 the complete list of fields that you can expose:
 
 - Attached audios
@@ -314,9 +314,9 @@ the complete list of fields that you can expose:
 Edit Posts
 ***********
 
-This endpoint type can be used to edit some post as well as associated custom fields and taxonomy terms.
+This endpoint type can be used to edit some posts as well as associated custom fields and taxonomy terms.
 
-.. note:: We recommend you to choose the **Editable** method which can be POST, PUT or PATCH in order to follow the best REST practices.
+.. note:: We recommend you to choose the **Editable** method which can be POST, PUT, or PATCH in order to follow the best REST practices.
 
 **Default Fields**
 
@@ -340,9 +340,9 @@ the endpoint how it will populate the post fields.
 
 **Custom Fields**
 
-This section lets you update associated custom fields. If the custom field is not already associated to the post then a new custom field is added and connected.
+This section lets you update associated custom fields. If the custom field is not already associated with the post then a new custom field is added and connected.
 
-For each custom field you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
+For each custom field, you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
 how to populate the custom field when editing the post.
 
 Notice that you can add as many custom fields as you need.
@@ -352,18 +352,18 @@ Notice that you can add as many custom fields as you need.
 This section lets you update the associated taxonomy terms exactly like in the Custom Fields section.
 
 There is an extra option that lets you choose whether you want to append the term to already associated terms or simply disconnect other terms and let only
-the new one associated to the post.
+the new one associated with the post.
 
-For each taxonomy you will have to fill a few fields, the `source field`_, the "Taxonomy" which is the taxonomy type and "Field type" which is
+For each taxonomy, you will have to fill a few fields, the `source field`_, the "Taxonomy" which is the taxonomy type, and "Field type" which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
-how to populate the taxonomy term when editing the post.
+on how to populate the taxonomy term when editing the post.
 
 Create Posts
 *************
 
 This endpoint type should be used to create new posts as well as associate custom fields and taxonomy terms.
 
-.. note:: We recommend to use the **Creatable** method which is POST in order to follow the best REST practices.
+.. note:: We recommend using the **Creatable** method which is POST in order to follow the best REST practices.
 
 **Default Fields**
 
@@ -380,34 +380,34 @@ See below the list of fields that can be filled when creating a new post through
 - Type
 - Author
 
-For each default field you will have to select the `source field`_ accordingly to the way you want to populate the field of the new post.
+For each default field, you will have to select the `source field`_ accordingly to the way you want to populate the field of the new post.
 
 **Custom Fields**
 
 When adding a new post through your custom endpoint you will also be able to associate custom fields to it.
 
-For each custom field you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
+For each custom field, you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
 how to populate the custom field when creating the new post.
 
 **Taxonomies**
 
-When creating a new post you will also be able to associate taxonomy terms or create a new ones and associate to the newly created post.
+When creating a new post you will also be able to associate taxonomy terms or create a new one and associate it to the newly created post.
 
-For each taxonomy you will have to fill a few fields, the `source field`_, the "Taxonomy" which is the taxonomy type and "Field type" which is
+For each taxonomy, you will have to fill a few fields, the `source field`_, the "Taxonomy" which is the taxonomy type, and "Field type" which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
-how to populate the taxonomy term when creating the new post.
+on how to populate the taxonomy term when creating the new post.
 
 Taxonomies
 +++++++++++
 
-On this section you will see the endpoint types responsible for creating endpoints for taxonomy terms.
+In this section, you will see the endpoint types responsible for creating endpoints for taxonomy terms.
 
 Display Taxonomies
 *******************
 
 This endpoint type should be used whenever you need to display taxonomy terms as well as associated term meta fields.
 
-.. note:: We recommend to use the GET method for this endpoint type in order to follow the best REST practices.
+.. note:: We recommend using the GET method for this endpoint type in order to follow the best REST practices.
 
 **Query Groups**
 
@@ -427,7 +427,7 @@ See the `limit and offset`_ section for more information about this one.
 
 **Endpoint Output**
 
-On this section you can define which term fields you will want to output through your endpoint. By default, all the term fields will be outputted.
+In this section, you can define which term fields you will want to output through your endpoint. By default, all the term fields will be outputted.
 
 See below the list of available fields:
 
@@ -443,14 +443,14 @@ See below the list of available fields:
 Users
 +++++++++++
 
-Now it's time to learn about the endpoint types responsible by handling actions on users as well as connected user meta fields.
+Now it's time to learn about the endpoint types responsible for handling actions on users as well as connected user meta fields.
 
 Display Users
 ***************
 
 This endpoint type should be used whenever you need to output information about users.
 
-.. note:: We recommend to use the GET method for this endpoint type in order to follow the best REST practices.
+.. note:: We recommend using the GET method for this endpoint type in order to follow the best REST practices.
 
 **Default Fields Filter**
 
@@ -490,7 +490,7 @@ See the `limit and offset`_ section for more information about this one.
 
 **Endpoint Output**
 
-Here is where you define which user fields should be outputted, by default all the user fields will outputted. See below the list of fields available:
+Here is where you define which user fields should be outputted, by default all the user fields will be outputted. See below the list of fields available:
 
 - User ID
 - User login
@@ -512,7 +512,7 @@ This endpoint type is the one that should be used for creating new users.
 
 **Default Fields**
 
-On this section is where you say how the default user fields should be populated when adding new users through the endpoint. The available fields are:
+This section is where you say how the default user fields should be populated when adding new users through the endpoint. The available fields are:
 
 - User login
 - User nice name
@@ -523,21 +523,21 @@ On this section is where you say how the default user fields should be populated
 - User display name
 - User password
 
-Once you choose an user field you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will tell the endpoint
+Once you choose a user field you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will tell the endpoint
 how to retrieve the data for the user fields when creating new users.
 
 **Custom Fields**
 
 When adding a new user through your custom endpoint you will also be able to associate custom fields to it.
 
-For each custom field you will have to fill two fields, the source field and "Custom field name". This is required in order to inform the endpoint how to populate the custom field when creating the new user.
+For each custom field, you will have to fill two fields, the source field and "Custom field name". This is required in order to inform the endpoint on how to populate the custom field when creating the new user.
 
 Edit Users
 ***********
 
-This endpoint type can be used to edit some user as well as associated custom fields.
+This endpoint type can be used to edit some users as well as associated custom fields.
 
-.. note:: We recommend you to choose the **Editable** method which can be POST, PUT or PATCH in order to follow the best REST practices.
+.. note:: We recommend you to choose the **Editable** method which can be POST, PUT, or PATCH in order to follow the best REST practices.
 
 **Default Fields**
 
@@ -557,9 +557,9 @@ the endpoint how it will populate the user fields.
 
 **Custom Fields**
 
-This section lets you update associated custom fields. If the custom field is not already associated to the user then a new custom field is added and connected.
+This section lets you update associated custom fields. If the custom field is not already associated with the user then a new custom field is added and connected.
 
-For each custom field you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
+For each custom field, you will have to fill two fields, the `source field`_ and "Custom field name". This is required in order to inform the endpoint
 how to populate the custom field when editing the user.
 
 Notice that you can add as many custom fields as you need.
@@ -567,7 +567,7 @@ Notice that you can add as many custom fields as you need.
 Custom Tables
 +++++++++++++++
 
-WordPress database structure is very powerful, however, sometimes we still need to create custom tables maybe because of performance or for filling a very particular
+The WordPress database structure is very powerful, however, sometimes we still need to create custom tables may be because of performance or for filling a very particular
 need.
 
 Rest Routes is fully compatible with custom tables, which means that you can create custom endpoints for doing anything with custom tables.
@@ -577,7 +577,7 @@ Display Items
 
 This is the endpoint type that can be used whenever you need to display items from custom tables.
 
-.. note:: We recommend you to choose the **Readable** method which is GET in order to follow the best REST practices.
+.. note:: We recommend you choose the **Readable** method which is GET in order to follow the best REST practices.
 
 **Table Selection**
 
@@ -585,7 +585,7 @@ This is a required section, where you should choose which table you will want to
 
 **Filter Columns**
 
-On this section you can add filters for the table columns as well as choose the relation type (AND | OR). You can add as many filters as you need and that
+In this section, you can add filters for the table columns as well as choose the relation type (AND | OR). You can add as many filters as you need and that
 will refine the results that your endpoint will output.
 
 **Ordering**
@@ -598,14 +598,14 @@ See the `limit and offset`_ section for more information about this one.
 
 **Endpoint Output**
 
-Here is where you can define which columns of the table should be displayed in the output. By default all the columns will be displayed.
+Here is where you can define which columns of the table should be displayed in the output. By default, all the columns will be displayed.
 
 Create Items
 *******************
 
 This endpoint type should be used whenever you need to create items on custom tables.
 
-.. note:: We recommend you to choose the **Creatable** method which is POST in order to follow the best REST practices.
+.. note:: We recommend choosing the **Creatable** method which is POST in order to follow the best REST practices.
 
 **Table Selection**
 
@@ -619,7 +619,7 @@ Once you choose a column you will see a field called `source field`_, you should
 the endpoint how it will populate the custom table field.
 
 Also, we've recently introduced a new field here called "Type to store". This field should be used whenever you want to
-store the data in database in a particular format, possible values are: raw, JSON and serialized.
+store the data in the database in a particular format, possible values are: raw, JSON, and serialized.
 
 Edit Items
 ***********
@@ -628,23 +628,23 @@ Edit Items
 
 This is a required section, where you should choose which table you will want to edit data.
 
-.. note:: We recommend you to choose the **Editable** method which can be POST, PUT or PATCH in order to follow the best REST practices.
+.. note:: We recommend you to choose the **Editable** method which can be POST, PUT, or PATCH in order to follow the best REST practices.
 
-.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.
+.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make a database backup.
 
 **Columns to Edit**
 
-On this section you will tell the endpoint which columns should be updated and how.
+In this section, you will tell the endpoint which columns should be updated and how.
 
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table fields.
 
 Also, we've recently introduced a new field here called "Type to store". This field should be used whenever you want to
-store the data in database in a particular format, possible values are: raw, JSON and serialized.
+store the data in the database in a particular format, possible values are: raw, JSON, and serialized.
 
 **Filters**
 
-On this section is where you should adjust the range of affected custom table entries. You can add as many filters as you need as well as adjust the relation type
+This section is where you should adjust the range of affected custom table entries. You can add as many filters as you need as well as adjust the relation type
 (AND | OR).
 
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
@@ -657,7 +657,7 @@ This endpoint type should be used for deleting entries from custom tables.
 
 .. note:: We recommend you to choose the **Deletable** method which DELETE in order to follow the best REST practices.
 
-.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.
+.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention especially to the Filters section, and always make a database backup.
 
 **Table Selection**
 
@@ -665,7 +665,7 @@ This is a required section, where you should choose which table you will want to
 
 **Filters**
 
-This section is the one which will limit the range of affected entries.
+This section is the one that will limit the range of affected entries.
 
 Once you choose a column you will see a field called `source field`_, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will retrieve the custom table column data.
@@ -674,7 +674,7 @@ REST API Call
 +++++++++++++++
 
 Use this action if you want to perform a REST call through your own endpoint. This can be very handy when you need to
-notify a third party service when certain action is done.
+notify a third-party service when a certain action is done.
 
 A few options are available for this endpoint type in the Basic information tab:
 
@@ -686,23 +686,23 @@ When you go to the "Request parameters" tab, you will be able to add as many par
 the URL. Of course, custom parameters will be accepted here and will be carried along from the original request done
 on your custom endpoint.
 
-In Request body you can compose the body of the request as you wish.
+In the Request body, you can compose the body of the request as you wish.
 
 In Request headers you can add as many headers as you want, also supporting custom parameters that can be carried from
 the original request into the new request you will perform.
 
 As an output for the endpoint you have two options:
 
-- Normal field: where you can add as many fields as you wish in order to be rendered as output of you request after the extra request is done.
+- Normal field: where you can add as many fields as you wish in order to be rendered as the output of your request after the extra request is done.
 - Request response: the response of the extra request will be displayed in the output.
 
 Custom SQL Query
 +++++++++++++++++
 
-.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using wrong queries.
+.. warning:: This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using the wrong queries.
 
 Given the disclaimer above, this is a very advanced and useful endpoint. It lets you build complex custom SQL queries for both
-update, delete and display table entries.
+update, delete, and display table entries.
 
 The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.
 
@@ -711,7 +711,7 @@ The custom SQL query that you will save here, will be performed from the custom 
 Query Groups
 --------------
 
-Query groups are options that will appear when you are dealing with filters for Custom Fields and Taxonomies. This is a way of dealing with complexes queries, so you can
+Query groups are options that will appear when you are dealing with filters for Custom Fields and Taxonomies. This is a way of dealing with complex queries, so you can
 break the filter in two or more groups.
 
 When working with **WP_Query** the `meta_query` clauses can be nested in order to construct complex queries.
@@ -719,40 +719,40 @@ For example, for showing products where **color=orange** OR **color=red&size=sma
 
 ::
 
-    $args = array(
-      'post_type'  => 'product',
-      'meta_query' => array(
-          'relation' => 'OR',
-          array(
-              'key'     => 'color',
-              'value'   => 'orange',
-              'compare' => '=',
-          ),
-          array(
-              'relation' => 'AND',
-              array(
-                      'key' => 'color',
-                      'value' => 'red',
-                      'compare' => '=',
-              ),
-              array(
-                      'key' => 'size',
-                      'value' => 'small',
-                      'compare' => '=',
-              ),
-            ),
-      ),
-    );
+    $args = array(
+      'post_type'  => 'product',
+      'meta_query' => array(
+          'relation' => 'OR',
+          array(
+              'key'     => 'color',
+              'value'   => 'orange',
+              'compare' => '=',
+          ),
+          array(
+              'relation' => 'AND',
+              array(
+                      'key' => 'color',
+                      'value' => 'red',
+                      'compare' => '=',
+              ),
+              array(
+                      'key' => 'size',
+                      'value' => 'small',
+                      'compare' => '=',
+              ),
+            ),
+      ),
+    );
 
-    $query = new WP_Query( $args );
+    $query = new WP_Query( $args );
 
 To achieve that with Rest Routes, you should:
 
-- In the **Query Groups** section add a new group choosing the relation field as **AND**
-- Set the **Main relation type** field under Custom Fields section to **OR**
+- In the **Query Groups** section add a new group choosing the related field as **AND**
+- Set the **Main relation type** field under the Custom Fields section to **OR**
 - Add a custom field filter for **color**
 - Add a new custom field filter for **color** and choose the group you already created
-- Add a new custom field filter for **size** and also choose the same group like above
+- Add a new custom field filter for **size** and also choose the same group as above
 
 .. _`custom fields`:
 
@@ -771,26 +771,26 @@ and each one has a set of fields:
 Ordering
 ----------
 
-This one should be used to define an order for the items that you are outputting which can be posts, terms, users, custom table items, etc. You have two group of fields
+This one should be used to define an order for the items that you are outputting which can be posts, terms, users, custom table items, etc. You have two groups of fields
 that you should fill:
 
 - **Order by**
 
-  - Source: (see `source field`_)
-  - Order by: this is the field that you want to order your results by. It can be default fields or even a custom field
+  - Source: (see `source field`_)
+  - Order by: this is the field that you want to order your results by. It can be default fields or even a custom field
 - **Order**:
 
-  - Source: (see `source field`_)
-  - Order: here you can define the direction of the ordering which can be **ASC** or **DESC**
+  - Source: (see `source field`_)
+  - Order: here you can define the direction of the ordering which can be **ASC** or **DESC**
 
 Limit and Offset
 -----------------
 
-On this section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both group of fields contains only one field
+This section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both groups of fields contains only one field
 which is the `source field`_.
 
 This is very handy for paginating items! You can set the limit by 10 and skip items per some `custom parameter`_. So, depending on the custom parameter
-value that the end user will pass to the endpoint, it will skip **X** posts thus producing a pagination effect.
+the value that the end-user will pass to the endpoint, it will skip **X** posts thus producing a pagination effect.
 
 Third-party Compatibility
 ===========================
@@ -806,31 +806,38 @@ ACF
 Display Custom Fields
 ++++++++++++++++++++++
 
-If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints. This functionality works also with
-the repeating custom fields, in this case all the levels / rows of the repeating field will be displayed. You have to optionally display
-one level deep based on the sub-field key if  you want, in this case you must use the character "|" in the Custom Field Name.
+If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints.
+
+This functionality works also with the repeating custom fields, in this case, all the levels/rows of the repeating field will be displayed. You have to optionally display
+one level deep based on the sub-field key if you want, in this case, you must use the character "|" in the Custom Field Name.
+
 E.g. you have a repeating field called "types" and then a sub-field called "name", you could display all the names by filling the Custom Field Name
 with "types|name".
 
 Edit Custom Fields
 ++++++++++++++++++++++
 
-Also, you can edit custom ACF fields, including repeating custom fields. In this case, the same rule as above applies here. You should use
-the "|" character in order to define the repeating field + sub-field. E.g. you want to update the field "name" in a repeating field called
+Also, you can edit custom ACF fields, including repeating custom fields. In this case, the same rule as above applies here.
+
+You should use
+the "|" character in order to define the repeating field + sub-field. For E.g. you want to update the field "name" in a repeating field called
 "types". You must fill the "Custom Field Name" field with the value "types|name".
 
 Custom Fields in Filters
 +++++++++++++++++++++++++
 
-There is the possibility to filter posts, users or terms by some ACF custom fields. The same pattern of using the character "|"
-applies here. So, you can create an endpoint and add a filter by custom parameter based in an ACF custom field, it can be a repeating field.
-As the sections above, you could use "types|name" in order to filter fields where the sub-field "name" of repeating field "Type" is "anything".
+There is the possibility to filter posts, users, or terms by some ACF custom fields. The same pattern of using the character "|"
+applies here.
+
+So, you can create an endpoint and add a filter by custom parameter based on an ACF custom field, it can be a repeating field.
+As in the sections above, you could use "types|name" in order to filter fields where the sub-field "name" of repeating field "Type" is "anything".
+
 The "types|name" should be placed in the Custom Field Name after adding one item in the Custom Fields filter of some Display endpoint.
 
 Hooks
 ========
 
-As any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.
+Like any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.
 
 Actions
 --------
@@ -907,14 +914,14 @@ Custom Tables
 
 **do_action('rest_routes_before_create_custom_table', $data, $endpoint)**
 
-Called right before the creation of items on custom table. Parameters:
+Called right before the creation of items on the custom table. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
 
 **do_action('rest_routes_after_create_custom_table', $data, $endpoint, $wpdb_new->insert_id)**
 
-Called right after the creation of items on custom table. Parameters:
+Called right after the creation of items on the custom table. Parameters:
 
 - data: the `\WP_REST_Request` object
 - endpoint: the endpoint object
@@ -996,7 +1003,7 @@ to the third-party plugin format.
 
 **apply_filters('rest_routes_should_process_tax_on_post_creation', true, $endpoint, $data, $id )**
 
-It lets you decide if taxonomies should be processed on post creation. Parameters:
+It lets you decide if taxonomies should be processed post-creation. Parameters:
 
 - choice: the filtered boolean value which by default is *true*
 - endpoint: the endpoint object
@@ -1014,7 +1021,7 @@ It lets you decide if custom fields should be processed on post creation. Parame
 
 **apply_filters('rest_routes_create_posts_result', $result, $data, $endpoint, $id )**
 
-It lets you filter the result of the endpoint for creation of posts. Parameters:
+It lets you filter the result of the endpoint for the creation of posts. Parameters:
 
 - result: the variable that can be filtered which by default is a message containing the id of the newly created post
 - data: the `\WP_REST_Request` object
@@ -1100,7 +1107,7 @@ It lets you decide if custom fields should be processed on user creation. Parame
 
 **apply_filters('rest_routes_create_users_result', $result, $data, $endpoint, $id )**
 
-It lets you filter the result of the endpoint for creation of users. Parameters:
+It lets you filter the result of the endpoint for the creation of users. Parameters:
 
 - result: the variable that can be filtered which by default is an array containing the id of the newly created item
 - data: the `\WP_REST_Request` object
@@ -1117,7 +1124,7 @@ It lets you filter the result of the endpoint for displaying users. Parameters:
 
 **apply_filters('rest_routes_edit_post_result', $result, $data, $endpoint, $id )**
 
-It lets you filter the result of the endpoint for editing an user. Parameters:
+It lets you filter the result of the endpoint for editing a user. Parameters:
 
 - result: the variable that can be filtered which by default is an array containing the id of the edited user
 - data: the `\WP_REST_Request` object
@@ -1129,7 +1136,7 @@ Custom Tables
 
 **apply_filters('rest_routes_create_custom_table_result', $result, $data, $endpoint, $id )**
 
-It lets you filter the result of the endpoint for creation of items in custom table. Parameters:
+It lets you filter the result of the endpoint for the creation of items in a custom table. Parameters:
 
 - result: the variable that can be filtered which by default is an array containing the id of the newly created item
 - data: the `\WP_REST_Request` object
@@ -1148,7 +1155,7 @@ It lets you filter the result of the endpoint for displaying items from custom t
 
 **apply_filters('rest_routes_custom_table_db_credentials', array $connection)**
 
-It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
+It lets you change the default database used on your custom endpoints for custom tables. By default, it connects to the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
 'username', 'password', 'host', 'database'.
 
@@ -1190,12 +1197,12 @@ It lets you filter the result of the request when everything went well:
 - endpoint: the endpoint object
 - data: the `\WP_REST_Request` object
 
-Third Party
+Third-Party
 ++++++++++++++
 
 **apply_filters('rest_routes_disable_wp_rest_route_cache', bool $value)**
 
-It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default it is set to false.
+It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default, it is set to false.
 
 FAQ
 ================
@@ -1208,17 +1215,17 @@ No. Rest Routes Pro lets you define the privacy of your endpoints, so you define
 Can I have more than one endpoint for my route?
 ------------------------------------------------
 
-Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button "Add new endpoint", this is the button that you should click in.
+Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button "Add new endpoint", this is the button that you should click on.
 
 Can I use dynamic data, such as current user ID, email, etc?
 ----------------------------------------------------------------
 
-Yes, when adding any filter, you can select "Dynamic" in the Source field. There, you will be able to use current user fields as well as current date fields. Dont' forget to use some authenticator plugin if you want to use current user data, such as https://wordpress.org/plugins/jwt-auth/
+Yes, when adding any filter, you can select "Dynamic" in the Source field. There, you will be able to use current user fields as well as current date fields. Don't forget to use some authenticator plugin if you want to use current user data, such as https://wordpress.org/plugins/jwt-auth/
 
 Does this plugin works with custom tables or only with default WordPress tables?
 -------------------------------------------------------------------------------------
 
-Yes, it works with custom tables. You can create endpoints for displaying, creating, editing and deleting data from any database table.
+Yes, it works with custom tables. You can create endpoints for displaying, creating, editing, and deleting data from any database table.
 
 Can I work with non-default databases?
 --------------------------------------

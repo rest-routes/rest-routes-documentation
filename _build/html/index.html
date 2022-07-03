@@ -50,7 +50,7 @@ with a well-designed interface for building your custom endpoints.</p>
 <p><strong>Integration with third-party APIs</strong></p>
 <p>This plugin is recommended for you that is developing WordPress applications that need to communicate with external servers. You can easily build custom routes that will both expose data to the third-party server and populate data into your WordPress application database.</p>
 <p><strong>WordPress Headless Applications</strong></p>
-<p>If you are simply using the WordPress as a back-end application, which means that you are not using anything related to the front-end of the WordPress, such as Themes, then this plugin is fully recommended for you. You can easily build custom routes that will let you expose your back-end data and also populate existing database tables.</p>
+<p>If you are simply using WordPress as a back-end application, which means that you are not using anything related to the front-end of WordPress, such as Themes, then this plugin is fully recommended for you. You can easily build custom routes that will let you expose your back-end data and also populate existing database tables.</p>
 </section>
 <section id="custom-endpoints">
 <h1>Custom Endpoints<a class="headerlink" href="#custom-endpoints" title="Permalink to this heading"></a></h1>
@@ -61,8 +61,8 @@ add a new one through the WordPress admin menu <strong>Rest Routes Pro &gt; Rout
 <p>This is the first section that you will find once editing or creating a new route. There you will find two
 text fields:</p>
 <p><strong>Namespace</strong></p>
-<p>Namespaces are the first part of the URL for the endpoint. They should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allows for two plugins to add a route of the same name, with different functionality.</p>
-<p>Namespaces in general should follow the pattern of vendor/v1, where vendor is typically your plugin or theme slug, and v1 represents the first version of the API. If you ever need to break compatibility with new endpoints, you can then bump this to v2.</p>
+<p>Namespaces are the first part of the URL for the endpoint. They should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allow for two plugins to add a route of the same name, with different functionality.</p>
+<p>Namespaces in general should follow the pattern of vendor/v1, where the vendor is typically your plugin or theme slug, and v1 represents the first version of the API. If you ever need to break compatibility with new endpoints, you can then bump this to v2.</p>
 <p><strong>Route name</strong></p>
 <p>This is the second part of the custom endpoint and the name of your route that comes out just after the namespace. So given the route below:</p>
 <p><cite>wp-json/acme/v1/some-nice-route</cite></p>
@@ -70,10 +70,10 @@ text fields:</p>
 </section>
 <section id="visibility">
 <h2>Visibility<a class="headerlink" href="#visibility" title="Permalink to this heading"></a></h2>
-<p>First of all, you must understand that for each single route you can have many endpoints. So, for instance,
+<p>First of all, you must understand that for every single route you can have many endpoints. So, for instance,
 for the route above <cite>wp-json/acme/v1/some-nice-route</cite> you can have one endpoint for displaying some posts
 using the HTTP GET method and another endpoint for creating posts using the HTTP POST method.</p>
-<p>Knowing that, you can whether switch the visibility of your entire route (both endpoints) or only switch
+<p>Knowing that you can whether switch the visibility of your entire route (both endpoints) or only switch
 the visibility of some particular endpoint.</p>
 <p>For doing that, you must use the green switcher for enabling or disabling.</p>
 <p>Once you do that, the selected endpoints or the entire route won’t be registered on the list of available
@@ -83,7 +83,7 @@ WP REST endpoints anymore, until you enable them again.</p>
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
 <p>This is the first left box that you will find once editing or creating a new route. There is where you can
 define which HTTP method you are going to use. You can have up to 4 endpoints on each route and each
-endpoints should be using a different method. Which means that you can’t have the same HTTP method for
+endpoint should be using a different method. This means that you can’t have the same HTTP method for
 two or more custom endpoints.</p>
 <p>In order to follow the recommended practices when working with REST APIs, remember to always use the right
 method for your endpoints:</p>
@@ -98,8 +98,8 @@ method for your endpoints:</p>
 <section id="the-source-field">
 <span id="source-field"></span><h2>The Source Field<a class="headerlink" href="#the-source-field" title="Permalink to this heading"></a></h2>
 <p>When creating your custom routes, you will notice that several fields in many places
-contains a field called <strong>Source</strong>. This where you can give a <strong>Fixed Value</strong>, a <strong>Custom Parameter</strong> (see <a class="reference internal" href="#custom-parameters">custom parameters</a>) or a <strong>Dynamic</strong> field.</p>
-<p>These fields can be found on many places, such as:</p>
+contain a field called <strong>Source</strong>. This is where you can give a <strong>Fixed Value</strong>, a <strong>Custom Parameter</strong> (see <a class="reference internal" href="#custom-parameters">custom parameters</a>), or a <strong>Dynamic</strong> field.</p>
+<p>These fields can be found in many places, such as:</p>
 <ul class="simple">
 <li><p>Default filters (e.g.: post id, post type)</p></li>
 <li><p>Custom fields filters</p></li>
@@ -108,29 +108,29 @@ contains a field called <strong>Source</strong>. This where you can give a <stro
 <li><p>Limit and offset</p></li>
 <li><p>and much more</p></li>
 </ul>
-<p>These fields are the ones responsible by customizing your endpoint and that can be by adding some filter or maybe limiting
+<p>These fields are the ones responsible for customizing your endpoint and that can be by adding some filter or maybe limiting
 the number of posts displayed through the endpoint.</p>
 <p>If you select the <strong>Fixed Value</strong> option, you will need to provide some value for your field and this value will
 be always used whenever this endpoint will be called.</p>
 <p>If you select the <strong>Custom Parameter</strong>, then it will prepare the endpoint for receiving the information
-from the end user. See the <a class="reference internal" href="#custom-parameters">custom parameters</a> section for understanding better how Custom Parameters work.</p>
+from the end-user. See the <a class="reference internal" href="#custom-parameters">custom parameters</a> section for understanding better how Custom Parameters work.</p>
 <p>If you select <strong>Dynamic</strong> then it will display another select field where you can choose some dynamic data for the field.
 Currently, it works with date and current user data.</p>
-<p>If you select <strong>Request body</strong> then the field will parse the whole body of the request and use in the field.</p>
+<p>If you select <strong>Request body</strong> then the field will parse the whole body of the request and use it in the field.</p>
 </section>
 <section id="multiple-values-field">
 <span id="multiple-values"></span><h2>Multiple-values Field<a class="headerlink" href="#multiple-values-field" title="Permalink to this heading"></a></h2>
-<p>Those fields accept one or more values. If you defined the <a class="reference internal" href="#source-field">source field</a> of it as <strong>Fixed Value</strong> you can separate the values using comma. When you define it as <a class="reference internal" href="#custom-parameter">custom parameter</a> you can
+<p>Those fields accept one or more values. If you defined the <a class="reference internal" href="#source-field">source field</a> of it as <strong>Fixed Value</strong> you can separate the values using a comma. When you define it as <a class="reference internal" href="#custom-parameter">custom parameter</a> you can
 pass array arguments in the request, something like: <strong>your-url.dev/arg[]=1&amp;arg[]=2&amp;arg[]=3</strong></p>
 </section>
 <section id="custom-parameters">
 <span id="custom-parameter"></span><span id="id1"></span><h2>Custom Parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this heading"></a></h2>
 <p>This is a very important part of the plugin. This is where you can define custom parameters that can be
-used by end users to interact with your custom endpoints.</p>
-<p>In order to use that, first of all you must add it using the <strong>Custom Parameters</strong> section. There are a couple
+used by end-users to interact with your custom endpoints.</p>
+<p>In order to use that, first of all, you must add it using the <strong>Custom Parameters</strong> section. There are a couple
 of settings you can define for each parameter:</p>
 <ul class="simple">
-<li><p>Name: the way to identify your parameter and also the name that end users will use</p></li>
+<li><p>Name: the way to identify your parameter and also the name that end-users will use</p></li>
 <li><p>Type: you can force a type for your parameter</p></li>
 <li><p>Required: marking this option will deny requests that are not passing this parameter</p></li>
 <li><p>Default: you can put any default value for your parameter here to be used in case of missing it</p></li>
@@ -139,17 +139,17 @@ of settings you can define for each parameter:</p>
 </section>
 <section id="conditional-display">
 <span id="id2"></span><h2>Conditional Display<a class="headerlink" href="#conditional-display" title="Permalink to this heading"></a></h2>
-<p>This feature will allow you to conditionally display some field in the output of several endpoint types, such as: Posts Display,
+<p>This feature will allow you to conditionally display some fields in the output of several endpoint types, such as Posts Display,
 Taxonomies Display, Users Display, and Custom Table Display.</p>
-<p>As soon as you add some field in the output of a endpoint, you will see a section called “Conditional Display”.
-The next step is to add at least one <a class="reference internal" href="#custom-parameter">custom parameter</a>. As a last step you will have to fill the 3 fields accordingly:</p>
+<p>As soon as you add some field to the output of an endpoint, you will see a section called “Conditional Display”.
+The next step is to add at least one <a class="reference internal" href="#custom-parameter">custom parameter</a>. As the last step you will have to fill the 3 fields accordingly:</p>
 <ul class="simple">
 <li><p>Conditional Parameter: this is the parameter that will control whether a field should be displayed in the output or not.</p></li>
 <li><p>Compare: the comparison type</p></li>
 <li><p>Conditional value: the value that should be present in the custom parameter in order to show the output field.</p></li>
 </ul>
 <p>E.g.: Imagine that you have a custom parameter in the URL called “show_prices”. Then you want to show the price field in the output
-only if the value of “show_prices” is equals to “yes”. Then this is what you have to do:</p>
+only if the value of “show_prices” is equal to “yes”. Then this is what you have to do:</p>
 <ul class="simple">
 <li><p>Add a custom parameter called “show_prices”</p></li>
 <li><p>Add an output field, the price field you want to conditionally show</p></li>
@@ -158,7 +158,7 @@ only if the value of “show_prices” is equals to “yes”. Then this is what
 </section>
 <section id="endpoint-privacy">
 <h2>Endpoint Privacy<a class="headerlink" href="#endpoint-privacy" title="Permalink to this heading"></a></h2>
-<p>Your custom routes can be whether protected or public. If don’t want to protect your custom route, then you can
+<p>Your custom routes can be protected or public. If don’t want to protect your custom route, then you can
 simply ignore this section.</p>
 <p>If you want to protect that, then you can choose some capability in the <strong>Endpoint Privacy</strong> section.</p>
 <p>For creating custom routes that only administrators can access, you could choose the <cite>manage_options</cite> capability.
@@ -172,13 +172,13 @@ your REST requests (JWT, OAuth).</strong></p>
 for every Endpoint Type. So, as soon as you switch the type, the right options will be displayed to you.</p>
 <section id="posts">
 <h3>Posts<a class="headerlink" href="#posts" title="Permalink to this heading"></a></h3>
-<p>You will see on this section endpoint types responsible for creating endpoints for posts as well as associated custom fields and taxonomies.</p>
+<p>You will see in this section endpoint types responsible for creating endpoints for posts as well as associated custom fields and taxonomies.</p>
 <section id="display-posts">
 <h4>Display Posts<a class="headerlink" href="#display-posts" title="Permalink to this heading"></a></h4>
 <p>This should be used for outputting posts as well as associated custom fields and taxonomies.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend to use the GET method for this endpoint type in order to follow the best REST practices.</p>
+<p>We recommend using the GET method for this endpoint type in order to follow the best REST practices.</p>
 </div>
 <p>Once you select this Endpoint Type you will find several options that will let you completely customize your endpoint. Those options will let you
 refine the results that this endpoint will output:</p>
@@ -196,7 +196,7 @@ refine the results that this endpoint will output:</p>
 <li><p><strong>Author name</strong>: the post’s author name.</p></li>
 <li><p><strong>Parent ID</strong>: the post’s parent ID. It accepts <a class="reference internal" href="#multiple-values">multiple values</a></p></li>
 <li><p><strong>Parent ID not in</strong>: the post’s parent id you don’t want to return. It accepts <a class="reference internal" href="#multiple-values">multiple values</a></p></li>
-<li><p><strong>Post search</strong>: the keywords passed here will be used to look for post by the post title or post content (default WordPress search mechanism)</p></li>
+<li><p><strong>Post search</strong>: the keywords passed here will be used to look for posts by the post title or post content (default WordPress search mechanism)</p></li>
 </ul>
 <p>Once you choose a filter you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs.</p>
 <p><strong>Query Groups</strong></p>
@@ -204,12 +204,12 @@ refine the results that this endpoint will output:</p>
 <p><strong>Custom Fields Filter</strong></p>
 <p>See the <a class="reference internal" href="#custom-fields">custom fields</a> section for more information about this one.</p>
 <p><strong>Taxonomies Filter</strong></p>
-<p>This one is used for adding filters for multiple taxonomies, in case you want to display posts based in one or more terms. Same as the custom fields section
+<p>This one is used for adding filters for multiple taxonomies, in case you want to display posts based on one or more terms. Same as the custom fields section
 here you can add as many filters as you want for the taxonomies and each filter contains a set of fields:</p>
 <ul class="simple">
 <li><p><strong>Source</strong> (see <a class="reference internal" href="#source-field">source field</a>)</p></li>
 <li><p><strong>Taxonomy</strong>: the taxonomy that you want to add the filter for</p></li>
-<li><p><strong>Field type</strong>: the term field that you want to add the filter for, possible values are: Term ID, Name and Slug</p></li>
+<li><p><strong>Field type</strong>: the term field that you want to add the filter for, possible values are: Term ID, Name, and Slug</p></li>
 <li><p><strong>Query Group</strong>: this field appears only when there is a query group already defined. For more details about this one please check the <a class="reference internal" href="#query-groups">query groups</a> section</p></li>
 </ul>
 <p><strong>Ordering</strong></p>
@@ -217,7 +217,7 @@ here you can add as many filters as you want for the taxonomies and each filter 
 <p><strong>Limit and Offset</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Output</strong></p>
-<p>On this section you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
+<p>In this section, you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
 the complete list of fields that you can expose:</p>
 <ul class="simple">
 <li><p>Attached audios</p></li>
@@ -287,10 +287,10 @@ the complete list of fields that you can expose:</p>
 </section>
 <section id="edit-posts">
 <h4>Edit Posts<a class="headerlink" href="#edit-posts" title="Permalink to this heading"></a></h4>
-<p>This endpoint type can be used to edit some post as well as associated custom fields and taxonomy terms.</p>
+<p>This endpoint type can be used to edit some posts as well as associated custom fields and taxonomy terms.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT or PATCH in order to follow the best REST practices.</p>
+<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT, or PATCH in order to follow the best REST practices.</p>
 </div>
 <p><strong>Default Fields</strong></p>
 <p>The very first thing you should do is to define how the endpoint will find the ID of the post to be edited. For this, you have a default field that contains only the <a class="reference internal" href="#source-field">source field</a>.</p>
@@ -310,24 +310,24 @@ the complete list of fields that you can expose:</p>
 <p>Once you choose a filter you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the post fields.</p>
 <p><strong>Custom Fields</strong></p>
-<p>This section lets you update associated custom fields. If the custom field is not already associated to the post then a new custom field is added and connected.</p>
-<p>For each custom field you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
+<p>This section lets you update associated custom fields. If the custom field is not already associated with the post then a new custom field is added and connected.</p>
+<p>For each custom field, you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
 how to populate the custom field when editing the post.</p>
 <p>Notice that you can add as many custom fields as you need.</p>
 <p><strong>Taxonomies</strong></p>
 <p>This section lets you update the associated taxonomy terms exactly like in the Custom Fields section.</p>
 <p>There is an extra option that lets you choose whether you want to append the term to already associated terms or simply disconnect other terms and let only
-the new one associated to the post.</p>
-<p>For each taxonomy you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type and “Field type” which is
+the new one associated with the post.</p>
+<p>For each taxonomy, you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type, and “Field type” which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
-how to populate the taxonomy term when editing the post.</p>
+on how to populate the taxonomy term when editing the post.</p>
 </section>
 <section id="create-posts">
 <h4>Create Posts<a class="headerlink" href="#create-posts" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used to create new posts as well as associate custom fields and taxonomy terms.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend to use the <strong>Creatable</strong> method which is POST in order to follow the best REST practices.</p>
+<p>We recommend using the <strong>Creatable</strong> method which is POST in order to follow the best REST practices.</p>
 </div>
 <p><strong>Default Fields</strong></p>
 <p>See below the list of fields that can be filled when creating a new post through the endpoint:</p>
@@ -343,27 +343,27 @@ how to populate the taxonomy term when editing the post.</p>
 <li><p>Type</p></li>
 <li><p>Author</p></li>
 </ul>
-<p>For each default field you will have to select the <a class="reference internal" href="#source-field">source field</a> accordingly to the way you want to populate the field of the new post.</p>
+<p>For each default field, you will have to select the <a class="reference internal" href="#source-field">source field</a> accordingly to the way you want to populate the field of the new post.</p>
 <p><strong>Custom Fields</strong></p>
 <p>When adding a new post through your custom endpoint you will also be able to associate custom fields to it.</p>
-<p>For each custom field you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
+<p>For each custom field, you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
 how to populate the custom field when creating the new post.</p>
 <p><strong>Taxonomies</strong></p>
-<p>When creating a new post you will also be able to associate taxonomy terms or create a new ones and associate to the newly created post.</p>
-<p>For each taxonomy you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type and “Field type” which is
+<p>When creating a new post you will also be able to associate taxonomy terms or create a new one and associate it to the newly created post.</p>
+<p>For each taxonomy, you will have to fill a few fields, the <a class="reference internal" href="#source-field">source field</a>, the “Taxonomy” which is the taxonomy type, and “Field type” which is
 the field used to match the taxonomy term and associate it. This is required in order to inform the endpoint
-how to populate the taxonomy term when creating the new post.</p>
+on how to populate the taxonomy term when creating the new post.</p>
 </section>
 </section>
 <section id="taxonomies">
 <h3>Taxonomies<a class="headerlink" href="#taxonomies" title="Permalink to this heading"></a></h3>
-<p>On this section you will see the endpoint types responsible for creating endpoints for taxonomy terms.</p>
+<p>In this section, you will see the endpoint types responsible for creating endpoints for taxonomy terms.</p>
 <section id="display-taxonomies">
 <h4>Display Taxonomies<a class="headerlink" href="#display-taxonomies" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to display taxonomy terms as well as associated term meta fields.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend to use the GET method for this endpoint type in order to follow the best REST practices.</p>
+<p>We recommend using the GET method for this endpoint type in order to follow the best REST practices.</p>
 </div>
 <p><strong>Query Groups</strong></p>
 <p>See the <a class="reference internal" href="#query-groups">query groups</a> section for more information about this one.</p>
@@ -374,7 +374,7 @@ how to populate the taxonomy term when creating the new post.</p>
 <p><strong>Limit and Offset</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
-<p>On this section you can define which term fields you will want to output through your endpoint. By default, all the term fields will be outputted.</p>
+<p>In this section, you can define which term fields you will want to output through your endpoint. By default, all the term fields will be outputted.</p>
 <p>See below the list of available fields:</p>
 <ul class="simple">
 <li><p>Term ID</p></li>
@@ -390,13 +390,13 @@ how to populate the taxonomy term when creating the new post.</p>
 </section>
 <section id="users">
 <h3>Users<a class="headerlink" href="#users" title="Permalink to this heading"></a></h3>
-<p>Now it’s time to learn about the endpoint types responsible by handling actions on users as well as connected user meta fields.</p>
+<p>Now it’s time to learn about the endpoint types responsible for handling actions on users as well as connected user meta fields.</p>
 <section id="display-users">
 <h4>Display Users<a class="headerlink" href="#display-users" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to output information about users.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend to use the GET method for this endpoint type in order to follow the best REST practices.</p>
+<p>We recommend using the GET method for this endpoint type in order to follow the best REST practices.</p>
 </div>
 <p><strong>Default Fields Filter</strong></p>
 <p>Here is where you can add filters for default user fields, this will let you refine the results of your endpoint.</p>
@@ -425,7 +425,7 @@ how to populate the taxonomy term when creating the new post.</p>
 <p><strong>Limit and Offset</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
-<p>Here is where you define which user fields should be outputted, by default all the user fields will outputted. See below the list of fields available:</p>
+<p>Here is where you define which user fields should be outputted, by default all the user fields will be outputted. See below the list of fields available:</p>
 <ul class="simple">
 <li><p>User ID</p></li>
 <li><p>User login</p></li>
@@ -447,7 +447,7 @@ how to populate the taxonomy term when creating the new post.</p>
 <p>We recommend you to choose the <strong>Creatable</strong> method which POST in order to follow the best REST practices.</p>
 </div>
 <p><strong>Default Fields</strong></p>
-<p>On this section is where you say how the default user fields should be populated when adding new users through the endpoint. The available fields are:</p>
+<p>This section is where you say how the default user fields should be populated when adding new users through the endpoint. The available fields are:</p>
 <ul class="simple">
 <li><p>User login</p></li>
 <li><p>User nice name</p></li>
@@ -458,18 +458,18 @@ how to populate the taxonomy term when creating the new post.</p>
 <li><p>User display name</p></li>
 <li><p>User password</p></li>
 </ul>
-<p>Once you choose an user field you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will tell the endpoint
+<p>Once you choose a user field you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will tell the endpoint
 how to retrieve the data for the user fields when creating new users.</p>
 <p><strong>Custom Fields</strong></p>
 <p>When adding a new user through your custom endpoint you will also be able to associate custom fields to it.</p>
-<p>For each custom field you will have to fill two fields, the source field and “Custom field name”. This is required in order to inform the endpoint how to populate the custom field when creating the new user.</p>
+<p>For each custom field, you will have to fill two fields, the source field and “Custom field name”. This is required in order to inform the endpoint on how to populate the custom field when creating the new user.</p>
 </section>
 <section id="edit-users">
 <h4>Edit Users<a class="headerlink" href="#edit-users" title="Permalink to this heading"></a></h4>
-<p>This endpoint type can be used to edit some user as well as associated custom fields.</p>
+<p>This endpoint type can be used to edit some users as well as associated custom fields.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT or PATCH in order to follow the best REST practices.</p>
+<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT, or PATCH in order to follow the best REST practices.</p>
 </div>
 <p><strong>Default Fields</strong></p>
 <p>The very first thing you should do is to define how the endpoint will find the ID of the user to be edited. For this, you have a default field that contains only the <a class="reference internal" href="#source-field">source field</a>.</p>
@@ -485,15 +485,15 @@ how to retrieve the data for the user fields when creating new users.</p>
 <p>Once you choose a filter you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the user fields.</p>
 <p><strong>Custom Fields</strong></p>
-<p>This section lets you update associated custom fields. If the custom field is not already associated to the user then a new custom field is added and connected.</p>
-<p>For each custom field you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
+<p>This section lets you update associated custom fields. If the custom field is not already associated with the user then a new custom field is added and connected.</p>
+<p>For each custom field, you will have to fill two fields, the <a class="reference internal" href="#source-field">source field</a> and “Custom field name”. This is required in order to inform the endpoint
 how to populate the custom field when editing the user.</p>
 <p>Notice that you can add as many custom fields as you need.</p>
 </section>
 </section>
 <section id="custom-tables">
 <h3>Custom Tables<a class="headerlink" href="#custom-tables" title="Permalink to this heading"></a></h3>
-<p>WordPress database structure is very powerful, however, sometimes we still need to create custom tables maybe because of performance or for filling a very particular
+<p>The WordPress database structure is very powerful, however, sometimes we still need to create custom tables may be because of performance or for filling a very particular
 need.</p>
 <p>Rest Routes is fully compatible with custom tables, which means that you can create custom endpoints for doing anything with custom tables.</p>
 <section id="display-items">
@@ -501,26 +501,26 @@ need.</p>
 <p>This is the endpoint type that can be used whenever you need to display items from custom tables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend you to choose the <strong>Readable</strong> method which is GET in order to follow the best REST practices.</p>
+<p>We recommend you choose the <strong>Readable</strong> method which is GET in order to follow the best REST practices.</p>
 </div>
 <p><strong>Table Selection</strong></p>
 <p>This is a required section, where you should choose which table you will want to output data.</p>
 <p><strong>Filter Columns</strong></p>
-<p>On this section you can add filters for the table columns as well as choose the relation type (AND | OR). You can add as many filters as you need and that
+<p>In this section, you can add filters for the table columns as well as choose the relation type (AND | OR). You can add as many filters as you need and that
 will refine the results that your endpoint will output.</p>
 <p><strong>Ordering</strong></p>
 <p>See the <a class="reference internal" href="#ordering">ordering</a> section for more information about this one.</p>
 <p><strong>Limit and Offset</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
-<p>Here is where you can define which columns of the table should be displayed in the output. By default all the columns will be displayed.</p>
+<p>Here is where you can define which columns of the table should be displayed in the output. By default, all the columns will be displayed.</p>
 </section>
 <section id="create-items">
 <h4>Create Items<a class="headerlink" href="#create-items" title="Permalink to this heading"></a></h4>
 <p>This endpoint type should be used whenever you need to create items on custom tables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend you to choose the <strong>Creatable</strong> method which is POST in order to follow the best REST practices.</p>
+<p>We recommend choosing the <strong>Creatable</strong> method which is POST in order to follow the best REST practices.</p>
 </div>
 <p><strong>Table Selection</strong></p>
 <p>This is a required section, where you should choose which table you will want to create data.</p>
@@ -529,7 +529,7 @@ will refine the results that your endpoint will output.</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table field.</p>
 <p>Also, we’ve recently introduced a new field here called “Type to store”. This field should be used whenever you want to
-store the data in database in a particular format, possible values are: raw, JSON and serialized.</p>
+store the data in the database in a particular format, possible values are: raw, JSON, and serialized.</p>
 </section>
 <section id="edit-items">
 <h4>Edit Items<a class="headerlink" href="#edit-items" title="Permalink to this heading"></a></h4>
@@ -537,20 +537,20 @@ store the data in database in a particular format, possible values are: raw, JSO
 <p>This is a required section, where you should choose which table you will want to edit data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT or PATCH in order to follow the best REST practices.</p>
+<p>We recommend you to choose the <strong>Editable</strong> method which can be POST, PUT, or PATCH in order to follow the best REST practices.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.</p>
+<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make a database backup.</p>
 </div>
 <p><strong>Columns to Edit</strong></p>
-<p>On this section you will tell the endpoint which columns should be updated and how.</p>
+<p>In this section, you will tell the endpoint which columns should be updated and how.</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table fields.</p>
 <p>Also, we’ve recently introduced a new field here called “Type to store”. This field should be used whenever you want to
-store the data in database in a particular format, possible values are: raw, JSON and serialized.</p>
+store the data in the database in a particular format, possible values are: raw, JSON, and serialized.</p>
 <p><strong>Filters</strong></p>
-<p>On this section is where you should adjust the range of affected custom table entries. You can add as many filters as you need as well as adjust the relation type
+<p>This section is where you should adjust the range of affected custom table entries. You can add as many filters as you need as well as adjust the relation type
 (AND | OR).</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will populate the custom table field.</p>
@@ -564,12 +564,12 @@ the endpoint how it will populate the custom table field.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention specially to the Filters section and always make database backup.</p>
+<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you delete both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention especially to the Filters section, and always make a database backup.</p>
 </div>
 <p><strong>Table Selection</strong></p>
 <p>This is a required section, where you should choose which table you will want to edit data.</p>
 <p><strong>Filters</strong></p>
-<p>This section is the one which will limit the range of affected entries.</p>
+<p>This section is the one that will limit the range of affected entries.</p>
 <p>Once you choose a column you will see a field called <a class="reference internal" href="#source-field">source field</a>, you should choose the right option accordingly to your needs and this will inform
 the endpoint how it will retrieve the custom table column data.</p>
 </section>
@@ -577,7 +577,7 @@ the endpoint how it will retrieve the custom table column data.</p>
 <section id="rest-api-call">
 <h3>REST API Call<a class="headerlink" href="#rest-api-call" title="Permalink to this heading"></a></h3>
 <p>Use this action if you want to perform a REST call through your own endpoint. This can be very handy when you need to
-notify a third party service when certain action is done.</p>
+notify a third-party service when a certain action is done.</p>
 <p>A few options are available for this endpoint type in the Basic information tab:</p>
 <ul class="simple">
 <li><p>Method: the HTTP request method you want to perform</p></li>
@@ -587,12 +587,12 @@ notify a third party service when certain action is done.</p>
 <p>When you go to the “Request parameters” tab, you will be able to add as many parameters as you want in order to compose
 the URL. Of course, custom parameters will be accepted here and will be carried along from the original request done
 on your custom endpoint.</p>
-<p>In Request body you can compose the body of the request as you wish.</p>
+<p>In the Request body, you can compose the body of the request as you wish.</p>
 <p>In Request headers you can add as many headers as you want, also supporting custom parameters that can be carried from
 the original request into the new request you will perform.</p>
 <p>As an output for the endpoint you have two options:</p>
 <ul class="simple">
-<li><p>Normal field: where you can add as many fields as you wish in order to be rendered as output of you request after the extra request is done.</p></li>
+<li><p>Normal field: where you can add as many fields as you wish in order to be rendered as the output of your request after the extra request is done.</p></li>
 <li><p>Request response: the response of the extra request will be displayed in the output.</p></li>
 </ul>
 </section>
@@ -600,54 +600,51 @@ the original request into the new request you will perform.</p>
 <h3>Custom SQL Query<a class="headerlink" href="#custom-sql-query" title="Permalink to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using wrong queries.</p>
+<p>This is a dangerous endpoint type! You must be sure of what you are doing. This endpoint will let you update both single and a range of entries from any kind of database table, even default WordPress ones. So, pay attention to the query you are writing, you may turn your site completely unusable when using the wrong queries.</p>
 </div>
 <p>Given the disclaimer above, this is a very advanced and useful endpoint. It lets you build complex custom SQL queries for both
-update, delete and display table entries.</p>
+update, delete, and display table entries.</p>
 <p>The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.</p>
 </section>
 </section>
 <section id="query-groups">
 <span id="id3"></span><h2>Query Groups<a class="headerlink" href="#query-groups" title="Permalink to this heading"></a></h2>
-<p>Query groups are options that will appear when you are dealing with filters for Custom Fields and Taxonomies. This is a way of dealing with complexes queries, so you can
+<p>Query groups are options that will appear when you are dealing with filters for Custom Fields and Taxonomies. This is a way of dealing with complex queries, so you can
 break the filter in two or more groups.</p>
 <p>When working with <strong>WP_Query</strong> the <cite>meta_query</cite> clauses can be nested in order to construct complex queries.
 For example, for showing products where <strong>color=orange</strong> OR <strong>color=red&amp;size=small</strong> translates to the following in code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$args = array(
-  &#39;post_type&#39;  =&gt; &#39;product&#39;,
-  &#39;meta_query&#39; =&gt; array(
-      &#39;relation&#39; =&gt; &#39;OR&#39;,
-      array(
-          &#39;key&#39;     =&gt; &#39;color&#39;,
-          &#39;value&#39;   =&gt; &#39;orange&#39;,
-          &#39;compare&#39; =&gt; &#39;=&#39;,
-      ),
-      array(
-          &#39;relation&#39; =&gt; &#39;AND&#39;,
-          array(
-                  &#39;key&#39; =&gt; &#39;color&#39;,
-                  &#39;value&#39; =&gt; &#39;red&#39;,
-                  &#39;compare&#39; =&gt; &#39;=&#39;,
-          ),
-          array(
-                  &#39;key&#39; =&gt; &#39;size&#39;,
-                  &#39;value&#39; =&gt; &#39;small&#39;,
-                  &#39;compare&#39; =&gt; &#39;=&#39;,
-          ),
-        ),
-  ),
-);
-
-$query = new WP_Query( $args );
-</pre></div>
-</div>
+<p>    $args = array(
+      ‘post_type’  =&gt; ‘product’,
+      ‘meta_query’ =&gt; array(
+          ‘relation’ =&gt; ‘OR’,
+          array(
+              ‘key’     =&gt; ‘color’,
+              ‘value’   =&gt; ‘orange’,
+              ‘compare’ =&gt; ‘=’,
+          ),
+          array(
+              ‘relation’ =&gt; ‘AND’,
+              array(
+                      ‘key’ =&gt; ‘color’,
+                      ‘value’ =&gt; ‘red’,
+                      ‘compare’ =&gt; ‘=’,
+              ),
+              array(
+                      ‘key’ =&gt; ‘size’,
+                      ‘value’ =&gt; ‘small’,
+                      ‘compare’ =&gt; ‘=’,
+              ),
+            ),
+      ),
+    );</p>
+<p>    $query = new WP_Query( $args );</p>
 <p>To achieve that with Rest Routes, you should:</p>
 <ul class="simple">
-<li><p>In the <strong>Query Groups</strong> section add a new group choosing the relation field as <strong>AND</strong></p></li>
-<li><p>Set the <strong>Main relation type</strong> field under Custom Fields section to <strong>OR</strong></p></li>
+<li><p>In the <strong>Query Groups</strong> section add a new group choosing the related field as <strong>AND</strong></p></li>
+<li><p>Set the <strong>Main relation type</strong> field under the Custom Fields section to <strong>OR</strong></p></li>
 <li><p>Add a custom field filter for <strong>color</strong></p></li>
 <li><p>Add a new custom field filter for <strong>color</strong> and choose the group you already created</p></li>
-<li><p>Add a new custom field filter for <strong>size</strong> and also choose the same group like above</p></li>
+<li><p>Add a new custom field filter for <strong>size</strong> and also choose the same group as above</p></li>
 </ul>
 </section>
 <section id="custom-fields-filter">
@@ -664,29 +661,23 @@ and each one has a set of fields:</p>
 </section>
 <section id="ordering">
 <h2>Ordering<a class="headerlink" href="#ordering" title="Permalink to this heading"></a></h2>
-<p>This one should be used to define an order for the items that you are outputting which can be posts, terms, users, custom table items, etc. You have two group of fields
+<p>This one should be used to define an order for the items that you are outputting which can be posts, terms, users, custom table items, etc. You have two groups of fields
 that you should fill:</p>
 <ul class="simple">
-<li><p><strong>Order by</strong></p>
-<ul>
-<li><p>Source: (see <a class="reference internal" href="#source-field">source field</a>)</p></li>
-<li><p>Order by: this is the field that you want to order your results by. It can be default fields or even a custom field</p></li>
+<li><p><strong>Order by</strong></p></li>
 </ul>
-</li>
-<li><p><strong>Order</strong>:</p>
-<ul>
-<li><p>Source: (see <a class="reference internal" href="#source-field">source field</a>)</p></li>
-<li><p>Order: here you can define the direction of the ordering which can be <strong>ASC</strong> or <strong>DESC</strong></p></li>
-</ul>
-</li>
-</ul>
+<p>  - Source: (see <a class="reference internal" href="#source-field">source field</a>)
+  - Order by: this is the field that you want to order your results by. It can be default fields or even a custom field
+- <strong>Order</strong>:</p>
+<p>  - Source: (see <a class="reference internal" href="#source-field">source field</a>)
+  - Order: here you can define the direction of the ordering which can be <strong>ASC</strong> or <strong>DESC</strong></p>
 </section>
 <section id="limit-and-offset">
 <h2>Limit and Offset<a class="headerlink" href="#limit-and-offset" title="Permalink to this heading"></a></h2>
-<p>On this section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both group of fields contains only one field
+<p>This section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both groups of fields contains only one field
 which is the <a class="reference internal" href="#source-field">source field</a>.</p>
 <p>This is very handy for paginating items! You can set the limit by 10 and skip items per some <a class="reference internal" href="#custom-parameter">custom parameter</a>. So, depending on the custom parameter
-value that the end user will pass to the endpoint, it will skip <strong>X</strong> posts thus producing a pagination effect.</p>
+the value that the end-user will pass to the endpoint, it will skip <strong>X</strong> posts thus producing a pagination effect.</p>
 </section>
 </section>
 <section id="third-party-compatibility">
@@ -700,30 +691,32 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <h2>ACF<a class="headerlink" href="#acf" title="Permalink to this heading"></a></h2>
 <section id="display-custom-fields">
 <h3>Display Custom Fields<a class="headerlink" href="#display-custom-fields" title="Permalink to this heading"></a></h3>
-<p>If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints. This functionality works also with
-the repeating custom fields, in this case all the levels / rows of the repeating field will be displayed. You have to optionally display
-one level deep based on the sub-field key if  you want, in this case you must use the character “|” in the Custom Field Name.
-E.g. you have a repeating field called “types” and then a sub-field called “name”, you could display all the names by filling the Custom Field Name
+<p>If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints.</p>
+<p>This functionality works also with the repeating custom fields, in this case, all the levels/rows of the repeating field will be displayed. You have to optionally display
+one level deep based on the sub-field key if you want, in this case, you must use the character “|” in the Custom Field Name.</p>
+<p>E.g. you have a repeating field called “types” and then a sub-field called “name”, you could display all the names by filling the Custom Field Name
 with “types|name”.</p>
 </section>
 <section id="edit-custom-fields">
 <h3>Edit Custom Fields<a class="headerlink" href="#edit-custom-fields" title="Permalink to this heading"></a></h3>
-<p>Also, you can edit custom ACF fields, including repeating custom fields. In this case, the same rule as above applies here. You should use
-the “|” character in order to define the repeating field + sub-field. E.g. you want to update the field “name” in a repeating field called
+<p>Also, you can edit custom ACF fields, including repeating custom fields. In this case, the same rule as above applies here.</p>
+<p>You should use
+the “|” character in order to define the repeating field + sub-field. For E.g. you want to update the field “name” in a repeating field called
 “types”. You must fill the “Custom Field Name” field with the value “types|name”.</p>
 </section>
 <section id="custom-fields-in-filters">
 <h3>Custom Fields in Filters<a class="headerlink" href="#custom-fields-in-filters" title="Permalink to this heading"></a></h3>
-<p>There is the possibility to filter posts, users or terms by some ACF custom fields. The same pattern of using the character “|”
-applies here. So, you can create an endpoint and add a filter by custom parameter based in an ACF custom field, it can be a repeating field.
-As the sections above, you could use “types|name” in order to filter fields where the sub-field “name” of repeating field “Type” is “anything”.
-The “types|name” should be placed in the Custom Field Name after adding one item in the Custom Fields filter of some Display endpoint.</p>
+<p>There is the possibility to filter posts, users, or terms by some ACF custom fields. The same pattern of using the character “|”
+applies here.</p>
+<p>So, you can create an endpoint and add a filter by custom parameter based on an ACF custom field, it can be a repeating field.
+As in the sections above, you could use “types|name” in order to filter fields where the sub-field “name” of repeating field “Type” is “anything”.</p>
+<p>The “types|name” should be placed in the Custom Field Name after adding one item in the Custom Fields filter of some Display endpoint.</p>
 </section>
 </section>
 </section>
 <section id="hooks">
 <h1>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading"></a></h1>
-<p>As any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.</p>
+<p>Like any other good WordPress plugin, we also offer a set of actions and filters that will let you interact with our plugin.</p>
 <section id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this heading"></a></h2>
 <section id="id4">
@@ -788,13 +781,13 @@ The “types|name” should be placed in the Custom Field Name after adding one 
 <section id="id7">
 <h3>Custom Tables<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p><strong>do_action(‘rest_routes_before_create_custom_table’, $data, $endpoint)</strong></p>
-<p>Called right before the creation of items on custom table. Parameters:</p>
+<p>Called right before the creation of items on the custom table. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
 <p><strong>do_action(‘rest_routes_after_create_custom_table’, $data, $endpoint, $wpdb_new-&gt;insert_id)</strong></p>
-<p>Called right after the creation of items on custom table. Parameters:</p>
+<p>Called right after the creation of items on the custom table. Parameters:</p>
 <ul class="simple">
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
 <li><p>endpoint: the endpoint object</p></li>
@@ -865,7 +858,7 @@ The “types|name” should be placed in the Custom Field Name after adding one 
 internally into our compatibility classes for ACF and Toolset Types in order to render the parsed custom field accordingly
 to the third-party plugin format.</p>
 <p><strong>apply_filters(‘rest_routes_should_process_tax_on_post_creation’, true, $endpoint, $data, $id )</strong></p>
-<p>It lets you decide if taxonomies should be processed on post creation. Parameters:</p>
+<p>It lets you decide if taxonomies should be processed post-creation. Parameters:</p>
 <ul class="simple">
 <li><p>choice: the filtered boolean value which by default is <em>true</em></p></li>
 <li><p>endpoint: the endpoint object</p></li>
@@ -881,7 +874,7 @@ to the third-party plugin format.</p>
 <li><p>id: the id of the newly created post</p></li>
 </ul>
 <p><strong>apply_filters(‘rest_routes_create_posts_result’, $result, $data, $endpoint, $id )</strong></p>
-<p>It lets you filter the result of the endpoint for creation of posts. Parameters:</p>
+<p>It lets you filter the result of the endpoint for the creation of posts. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is a message containing the id of the newly created post</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -955,7 +948,7 @@ to the third-party plugin format.</p>
 <li><p>id: the id of the newly created user</p></li>
 </ul>
 <p><strong>apply_filters(‘rest_routes_create_users_result’, $result, $data, $endpoint, $id )</strong></p>
-<p>It lets you filter the result of the endpoint for creation of users. Parameters:</p>
+<p>It lets you filter the result of the endpoint for the creation of users. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the newly created item</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -970,7 +963,7 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
 <p><strong>apply_filters(‘rest_routes_edit_post_result’, $result, $data, $endpoint, $id )</strong></p>
-<p>It lets you filter the result of the endpoint for editing an user. Parameters:</p>
+<p>It lets you filter the result of the endpoint for editing a user. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the edited user</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -981,7 +974,7 @@ to the third-party plugin format.</p>
 <section id="id13">
 <h3>Custom Tables<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(‘rest_routes_create_custom_table_result’, $result, $data, $endpoint, $id )</strong></p>
-<p>It lets you filter the result of the endpoint for creation of items in custom table. Parameters:</p>
+<p>It lets you filter the result of the endpoint for the creation of items in a custom table. Parameters:</p>
 <ul class="simple">
 <li><p>result: the variable that can be filtered which by default is an array containing the id of the newly created item</p></li>
 <li><p>data: the <cite>WP_REST_Request</cite> object</p></li>
@@ -996,7 +989,7 @@ to the third-party plugin format.</p>
 <li><p>endpoint: the endpoint object</p></li>
 </ul>
 <p id="custom-table-database-filter"><strong>apply_filters(‘rest_routes_custom_table_db_credentials’, array $connection)</strong></p>
-<p>It lets you change the default database used on your custom endpoints for custom tables. By default, it connects into the WordPress database.
+<p>It lets you change the default database used on your custom endpoints for custom tables. By default, it connects to the WordPress database.
 You can change it by returning an array containing the connection credentials to the desired database:
 ‘username’, ‘password’, ‘host’, ‘database’.</p>
 </section>
@@ -1035,9 +1028,9 @@ You can change it by returning an array containing the connection credentials to
 </ul>
 </section>
 <section id="third-party">
-<h3>Third Party<a class="headerlink" href="#third-party" title="Permalink to this heading"></a></h3>
+<h3>Third-Party<a class="headerlink" href="#third-party" title="Permalink to this heading"></a></h3>
 <p><strong>apply_filters(‘rest_routes_disable_wp_rest_route_cache’, bool $value)</strong></p>
-<p>It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default it is set to false.</p>
+<p>It lets you decide whether WP Rest Cache will stop caching your custom endpoints built with Rest Routes. By default, it is set to false.</p>
 </section>
 </section>
 </section>
@@ -1049,15 +1042,15 @@ You can change it by returning an array containing the connection credentials to
 </section>
 <section id="can-i-have-more-than-one-endpoint-for-my-route">
 <h2>Can I have more than one endpoint for my route?<a class="headerlink" href="#can-i-have-more-than-one-endpoint-for-my-route" title="Permalink to this heading"></a></h2>
-<p>Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button “Add new endpoint”, this is the button that you should click in.</p>
+<p>Yes. You can have one endpoint for each HTTP verb. So, it means that you can create one route, e.g. acme/products and create two endpoints, one GET for displaying products and one POST for creating a new product. When editing your route you should find a button in the button “Add new endpoint”, this is the button that you should click on.</p>
 </section>
 <section id="can-i-use-dynamic-data-such-as-current-user-id-email-etc">
 <h2>Can I use dynamic data, such as current user ID, email, etc?<a class="headerlink" href="#can-i-use-dynamic-data-such-as-current-user-id-email-etc" title="Permalink to this heading"></a></h2>
-<p>Yes, when adding any filter, you can select “Dynamic” in the Source field. There, you will be able to use current user fields as well as current date fields. Dont’ forget to use some authenticator plugin if you want to use current user data, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
+<p>Yes, when adding any filter, you can select “Dynamic” in the Source field. There, you will be able to use current user fields as well as current date fields. Don’t forget to use some authenticator plugin if you want to use current user data, such as <a class="reference external" href="https://wordpress.org/plugins/jwt-auth/">https://wordpress.org/plugins/jwt-auth/</a></p>
 </section>
 <section id="does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables">
 <h2>Does this plugin works with custom tables or only with default WordPress tables?<a class="headerlink" href="#does-this-plugin-works-with-custom-tables-or-only-with-default-wordpress-tables" title="Permalink to this heading"></a></h2>
-<p>Yes, it works with custom tables. You can create endpoints for displaying, creating, editing and deleting data from any database table.</p>
+<p>Yes, it works with custom tables. You can create endpoints for displaying, creating, editing, and deleting data from any database table.</p>
 </section>
 <section id="can-i-work-with-non-default-databases">
 <h2>Can I work with non-default databases?<a class="headerlink" href="#can-i-work-with-non-default-databases" title="Permalink to this heading"></a></h2>
@@ -1146,7 +1139,7 @@ You can change it by returning an array containing the connection credentials to
 <li><a class="reference internal" href="#id13">Custom Tables</a></li>
 <li><a class="reference internal" href="#id14">REST API Call</a></li>
 <li><a class="reference internal" href="#id15">Custom SQL Query</a></li>
-<li><a class="reference internal" href="#third-party">Third Party</a></li>
+<li><a class="reference internal" href="#third-party">Third-Party</a></li>
 </ul>
 </li>
 </ul>
