@@ -696,6 +696,30 @@ value that the end user will pass to the endpoint, it will skip <strong>X</stron
 <li><p>ACF</p></li>
 <li><p>Toolset Types</p></li>
 </ul>
+<section id="acf">
+<h2>ACF<a class="headerlink" href="#acf" title="Permalink to this heading"></a></h2>
+<section id="display-custom-fields">
+<h3>Display Custom Fields<a class="headerlink" href="#display-custom-fields" title="Permalink to this heading"></a></h3>
+<p>If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints. This functionality works also with
+the repeating custom fields, in this case all the levels / rows of the repeating field will be displayed. You have to optionally display
+one level deep based on the sub-field key if  you want, in this case you must use the character “|” in the Custom Field Name.
+E.g. you have a repeating field called “types” and then a sub-field called “name”, you could display all the names by filling the Custom Field Name
+with “types|name”.</p>
+</section>
+<section id="edit-custom-fields">
+<h3>Edit Custom Fields<a class="headerlink" href="#edit-custom-fields" title="Permalink to this heading"></a></h3>
+<p>Also, you can edit custom ACF fields, including repeating custom fields. In this case, the same rule as above applies here. You should use
+the “|” character in order to define the repeating field + sub-field. E.g. you want to update the field “name” in a repeating field called
+“types”. You must fill the “Custom Field Name” field with the value “types|name”.</p>
+</section>
+<section id="custom-fields-in-filters">
+<h3>Custom Fields in Filters<a class="headerlink" href="#custom-fields-in-filters" title="Permalink to this heading"></a></h3>
+<p>There is the possibility to filter posts, users or terms by some ACF custom fields. The same pattern of using the character “|”
+applies here. So, you can create an endpoint and add a filter by custom parameter based in an ACF custom field, it can be a repeating field.
+As the sections above, you could use “types|name” in order to filter fields where the sub-field “name” of repeating field “Type” is “anything”.
+The “types|name” should be placed in the Custom Field Name after adding one item in the Custom Fields filter of some Display endpoint.</p>
+</section>
+</section>
 </section>
 <section id="hooks">
 <h1>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading"></a></h1>
@@ -1096,7 +1120,15 @@ You can change it by returning an array containing the connection credentials to
 <li><a class="reference internal" href="#limit-and-offset">Limit and Offset</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#third-party-compatibility">Third-party Compatibility</a></li>
+<li><a class="reference internal" href="#third-party-compatibility">Third-party Compatibility</a><ul>
+<li><a class="reference internal" href="#acf">ACF</a><ul>
+<li><a class="reference internal" href="#display-custom-fields">Display Custom Fields</a></li>
+<li><a class="reference internal" href="#edit-custom-fields">Edit Custom Fields</a></li>
+<li><a class="reference internal" href="#custom-fields-in-filters">Custom Fields in Filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hooks">Hooks</a><ul>
 <li><a class="reference internal" href="#actions">Actions</a><ul>
 <li><a class="reference internal" href="#id4">Posts</a></li>
