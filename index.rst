@@ -173,8 +173,7 @@ If you want to protect that, then you can choose some capability in the **Endpoi
 For creating custom routes that only administrators can access, you could choose the `manage_options` capability.
 This would make the request fail if the logged user has no capability of `manage_options` (non-administrators).
 
-**One very important note here is that you must use a third-party plugin for handling the authentication of
-your REST requests (JWT, OAuth).**
+By default, Rest Routes comes with a Basic Authentication mechanism, so you can use a WP username and password for doing authenticated requests.
 
 Endpoint Type
 ---------------
@@ -1210,7 +1209,7 @@ FAQ
 Does this plugin offer REST API authentication?
 ---------------------------------------------------
 
-No. Rest Routes Pro lets you define the privacy of your endpoints, so you define which category of user will be able to use your endpoint, however, this feature must be used with some authentication plugin, such as https://wordpress.org/plugins/jwt-auth/
+Yes, Rest Routes comes out with a default Basic Authentication mechanism, so you can perform authenticated requests using WP username and password.
 
 Can I have more than one endpoint for my route?
 ------------------------------------------------
