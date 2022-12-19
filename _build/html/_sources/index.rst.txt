@@ -173,8 +173,7 @@ If you want to protect that, then you can choose some capability in the **Endpoi
 For creating custom routes that only administrators can access, you could choose the `manage_options` capability.
 This would make the request fail if the logged user has no capability of `manage_options` (non-administrators).
 
-**One very important note here is that you must use a third-party plugin for handling the authentication of
-your REST requests (JWT, OAuth).**
+By default, Rest Routes comes with a Basic Authentication mechanism, so you can use a WP username and password for doing authenticated requests.
 
 Endpoint Type
 ---------------
@@ -808,7 +807,7 @@ Display Custom Fields
 
 If you have custom fields from ACF you are able to output them through Rest Routes custom endpoints.
 
-This functionality works also with the repeating custom fields, in this case, all the levels/rows of the repeating field will be displayed. You have to optionally display
+This functionality works also with the repeating custom fields, in this case, all the levels/rows of the repeating field will be displayed. You have the choice to optionally display
 one level deep based on the sub-field key if you want, in this case, you must use the character "|" in the Custom Field Name.
 
 E.g. you have a repeating field called "types" and then a sub-field called "name", you could display all the names by filling the Custom Field Name
@@ -1210,7 +1209,7 @@ FAQ
 Does this plugin offer REST API authentication?
 ---------------------------------------------------
 
-No. Rest Routes Pro lets you define the privacy of your endpoints, so you define which category of user will be able to use your endpoint, however, this feature must be used with some authentication plugin, such as https://wordpress.org/plugins/jwt-auth/
+Yes, Rest Routes comes out with a default Basic Authentication mechanism, so you can perform authenticated requests using WP username and password.
 
 Can I have more than one endpoint for my route?
 ------------------------------------------------
