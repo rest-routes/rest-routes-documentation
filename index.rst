@@ -790,8 +790,7 @@ which is the `source field`_.
 
 You are also able to add pagination on your site through this section. For this, you will have to:
 
-- Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button "Add custom parameter" to automatically add a new custom URL parameter called "page" for you. Then, all you have to do is to connect this new
-custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.
+- Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button "Add custom parameter" to automatically add a new custom URL parameter called "page" for you. Then, all you have to do is to connect this new custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.
 
 - Define how many items per page you will want to display.
 
