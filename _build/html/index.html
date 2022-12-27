@@ -212,7 +212,7 @@ here you can add as many filters as you want for the taxonomies and each filter 
 </ul>
 <p><strong>Ordering</strong></p>
 <p>See the <a class="reference internal" href="#ordering">ordering</a> section for more information about this one.</p>
-<p><strong>Limit and Offset</strong></p>
+<p><strong>Limit and Offset (Pagination)</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Output</strong></p>
 <p>In this section, you are able to choose which fields you will want to output through the endpoint. By default, all default fields are outputted. Below you will find
@@ -369,7 +369,7 @@ on how to populate the taxonomy term when creating the new post.</p>
 <p>See the <a class="reference internal" href="#custom-fields">custom fields</a> section for more information about this one.</p>
 <p><strong>Ordering</strong></p>
 <p>See the <a class="reference internal" href="#ordering">ordering</a> section for more information about this one.</p>
-<p><strong>Limit and Offset</strong></p>
+<p><strong>Limit and Offset (Pagination)</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
 <p>In this section, you can define which term fields you will want to output through your endpoint. By default, all the term fields will be outputted.</p>
@@ -420,7 +420,7 @@ on how to populate the taxonomy term when creating the new post.</p>
 <p>See the <a class="reference internal" href="#custom-fields">custom fields</a> section for more information about this one.</p>
 <p><strong>Ordering</strong></p>
 <p>See the <a class="reference internal" href="#ordering">ordering</a> section for more information about this one.</p>
-<p><strong>Limit and Offset</strong></p>
+<p><strong>Limit and Offset (Pagination)</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
 <p>Here is where you define which user fields should be outputted, by default all the user fields will be outputted. See below the list of fields available:</p>
@@ -508,7 +508,7 @@ need.</p>
 will refine the results that your endpoint will output.</p>
 <p><strong>Ordering</strong></p>
 <p>See the <a class="reference internal" href="#ordering">ordering</a> section for more information about this one.</p>
-<p><strong>Limit and Offset</strong></p>
+<p><strong>Limit and Offset (Pagination)</strong></p>
 <p>See the <a class="reference internal" href="#limit-and-offset">limit and offset</a> section for more information about this one.</p>
 <p><strong>Endpoint Output</strong></p>
 <p>Here is where you can define which columns of the table should be displayed in the output. By default, all the columns will be displayed.</p>
@@ -674,8 +674,13 @@ that you should fill:</p>
 <h2>Limit and Offset<a class="headerlink" href="#limit-and-offset" title="Permalink to this headline"></a></h2>
 <p>This section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both groups of fields contains only one field
 which is the <a class="reference internal" href="#source-field">source field</a>.</p>
-<p>This is very handy for paginating items! You can set the limit by 10 and skip items per some <a class="reference internal" href="#custom-parameter">custom parameter</a>. So, depending on the custom parameter
-the value that the end-user will pass to the endpoint, it will skip <strong>X</strong> posts thus producing a pagination effect.</p>
+<p>You are also able to add pagination on your site through this section. For this, you will have to:</p>
+<ul class="simple">
+<li><p>Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button “Add custom parameter” to automatically add a new custom URL parameter called “page” for you. Then, all you have to do is to connect this new</p></li>
+</ul>
+<p>custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.
+- Define how many items per page you will want to display.</p>
+<p>After the settings above are done, you will be able to call the endpoint with wp-json/your-endpoint/?page=1, wp-json/your-endpoint/?page=2 and so on.</p>
 </section>
 </section>
 <section id="third-party-compatibility">

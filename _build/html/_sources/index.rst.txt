@@ -237,7 +237,7 @@ here you can add as many filters as you want for the taxonomies and each filter 
 
 See the `ordering`_ section for more information about this one.
 
-**Limit and Offset**
+**Limit and Offset (Pagination)**
 
 See the `limit and offset`_ section for more information about this one.
 
@@ -420,7 +420,7 @@ See the `custom fields`_ section for more information about this one.
 
 See the `ordering`_ section for more information about this one.
 
-**Limit and Offset**
+**Limit and Offset (Pagination)**
 
 See the `limit and offset`_ section for more information about this one.
 
@@ -483,7 +483,7 @@ See the `custom fields`_ section for more information about this one.
 
 See the `ordering`_ section for more information about this one.
 
-**Limit and Offset**
+**Limit and Offset (Pagination)**
 
 See the `limit and offset`_ section for more information about this one.
 
@@ -591,7 +591,7 @@ will refine the results that your endpoint will output.
 
 See the `ordering`_ section for more information about this one.
 
-**Limit and Offset**
+**Limit and Offset (Pagination)**
 
 See the `limit and offset`_ section for more information about this one.
 
@@ -788,8 +788,13 @@ Limit and Offset
 This section is where you define how many items you want to display through the endpoint and also how many items you want to skip. Both groups of fields contains only one field
 which is the `source field`_.
 
-This is very handy for paginating items! You can set the limit by 10 and skip items per some `custom parameter`_. So, depending on the custom parameter
-the value that the end-user will pass to the endpoint, it will skip **X** posts thus producing a pagination effect.
+You are also able to add pagination on your site through this section. For this, you will have to:
+
+- Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button "Add custom parameter" to automatically add a new custom URL parameter called "page" for you. Then, all you have to do is to connect this new
+custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.
+- Define how many items per page you will want to display.
+
+After the settings above are done, you will be able to call the endpoint with wp-json/your-endpoint/?page=1, wp-json/your-endpoint/?page=2 and so on.
 
 Third-party Compatibility
 ===========================
