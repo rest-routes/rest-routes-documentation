@@ -603,6 +603,10 @@ the original request into the new request you will perform.</p>
 <p>Given the disclaimer above, this is a very advanced and useful endpoint. It lets you build complex custom SQL queries for both
 update, delete, and display table entries.</p>
 <p>The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use placeholders in order to replace them with the value passed through custom URL parameters. All you need to do is to wrap them with %%. Your query would look like “SELECT * FROM wp_posts WHERE ID=%post_id%”, where post_id is the custom URL parameter you previously configured for your endpoint and is now passing when calling the endpoint.</p>
+</div>
 </section>
 </section>
 <section id="query-groups">

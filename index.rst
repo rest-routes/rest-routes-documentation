@@ -705,6 +705,8 @@ update, delete, and display table entries.
 
 The custom SQL query that you will save here, will be performed from the custom endpoint and then rendered as output.
 
+.. note:: You can also use placeholders in order to replace them with the value passed through custom URL parameters. All you need to do is to wrap them with %%. Your query would look like "SELECT * FROM wp_posts WHERE ID=%post_id%", where post_id is the custom URL parameter you previously configured for your endpoint and is now passing when calling the endpoint.
+
 .. _`query groups`:
 
 Query Groups
