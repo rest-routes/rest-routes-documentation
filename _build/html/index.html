@@ -676,10 +676,9 @@ that you should fill:</p>
 which is the <a class="reference internal" href="#source-field">source field</a>.</p>
 <p>You are also able to add pagination on your site through this section. For this, you will have to:</p>
 <ul class="simple">
-<li><p>Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button “Add custom parameter” to automatically add a new custom URL parameter called “page” for you. Then, all you have to do is to connect this new</p></li>
+<li><p>Define a way to find the current page number (Page Number), it can be either a fixed number (not very useful in this case) or a custom URL parameter, you can even use the button “Add custom parameter” to automatically add a new custom URL parameter called “page” for you. Then, all you have to do is to connect this new custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.</p></li>
+<li><p>Define how many items per page you will want to display.</p></li>
 </ul>
-<p>custom parameter with your in the Source select field an then select the right parameter in the dropdown that will appear below the Source one.
-- Define how many items per page you will want to display.</p>
 <p>After the settings above are done, you will be able to call the endpoint with wp-json/your-endpoint/?page=1, wp-json/your-endpoint/?page=2 and so on.</p>
 </section>
 </section>
@@ -823,6 +822,13 @@ As in the sections above, you could use “types|name” in order to filter fiel
 </section>
 <section id="id8">
 <h3>REST API Call<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<p><strong>do_action(‘rest_routes_rest_api_response_body’, $body, $endpoint, $request)</strong></p>
+<p>Called after the REST API request is performed, providing the response body.</p>
+<ul class="simple">
+<li><p>body: the body of the response</p></li>
+<li><p>endpoint: the endpoint object</p></li>
+<li><p>request: the <cite>WP_REST_Request</cite> object</p></li>
+</ul>
 <p><strong>do_action(‘rest_routes_before_call_rest_api_call_callback’, $data, $endpoint)</strong></p>
 <p>Called before the REST API request is performed.</p>
 <ul class="simple">
