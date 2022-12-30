@@ -962,6 +962,14 @@ Called right after editing custom table items. Parameters:
 REST API Call
 +++++++++++++++++
 
+**do_action('rest_routes_rest_api_response_body', $body, $endpoint, $request)**
+
+Called after the REST API request is performed, providing the response body.
+
+- body: the body of the response
+- endpoint: the endpoint object
+- request: the `\WP_REST_Request` object
+
 **do_action('rest_routes_before_call_rest_api_call_callback', $data, $endpoint)**
 
 Called before the REST API request is performed.
